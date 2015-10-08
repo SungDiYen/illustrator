@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 //var httpProxy = require('http-proxy');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users  = require('./routes/users');
 
 var app = express();
 
@@ -63,8 +63,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-/*
-    AWS 白名單也要開放IP,port
-*/
+
+// AWS 白名單也要開放IP,port
 app.listen(8080);
 module.exports = app;
