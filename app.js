@@ -6,13 +6,29 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var http = require('http');
 //var httpProxy = require('http-proxy');
-
 var routes = require('./routes/index');
-var users  = require('./routes/users');
+//var users  = require('./routes/users');
 
+//AWS S3
+/*
+var aws = require('aws-sdk');
+aws.config.loadFromPath('./config.json');
+var s3 = new aws.S3();
+*/
+
+//Connect to MongoDB
+//var mongo = require('mongodb');
+var mongoose  = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/db_no1');
+/*
+var Cat = mongoose.model('cat', { name: String});
+var kitty = new Cat({name: 'wertyu'});
+kitty.save(function(err){
+    if(err)
+        console.log('meow');
+});
+*/
 var app = express();
-
-
 
 
 // view engine setup
@@ -24,12 +40,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(require('less-middleware')(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
-
+//app.get('/users', users);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
