@@ -1,13 +1,13 @@
 var express = require('express');
 var path = require('path');
-//var favicon = require('static-favicon');
+var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var http = require('http');
 //var httpProxy = require('http-proxy');
 var routes = require('./routes/index');
-//var users  = require('./routes/users');
+var users  = require('./routes/users');
 
 //AWS S3
 /*
@@ -41,8 +41,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', routes);
-//app.get('/users', users);
+// Access css,js
+app.use(express.static('public'));
+
+app.get('/', routes);
+app.get('/users', users);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

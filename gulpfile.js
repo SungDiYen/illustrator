@@ -1,8 +1,7 @@
 var gulp       = require('gulp'),
 	nodemon    = require('gulp-nodemon'),
-	server     = require('gulp-express'),
-	notify 	   = require('gulp-notify'), 
-	livereload = require('gulp-livereload'),
+	notify 	   = require('gulp-notify'), 	//變更通知
+	livereload = require('gulp-livereload'), //即時重整
 	compass    = require('gulp-compass');
 
 
