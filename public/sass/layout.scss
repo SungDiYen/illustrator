@@ -52,13 +52,9 @@ main {
 				padding-bottom: 40px;
 			}
 			.slide--down {
-				$size:  50px;
-				width:  $size;
-				height: $size;
 				background: transparent;
-				border: 2px solid $yl;
-				@include border-radius(50%);
-				position: relative;
+				padding: 0;
+				margin: 0;
 			}
 		}
 		.landing__bg {
@@ -69,35 +65,3 @@ main {
 }
 
 /* self define*/
-
-.ui.button>.icon {
-	&.arrow--down {
-		//position: static;
-		position: absolute;
-		top: 14px;
-		right: 0;
-		left: 0;
-		margin: auto;
-		height: 2px;
-		width: 26px;
-		background: $yl;
-		&:before, &:after {
-			content: '';
-			height: 26px;
-			width: 2px;
-			background: $yl!important;
-			display: block;
-			position: absolute;
-			top: 0px;
-		}
-		&:before {
-			@include rotate(27deg);
-			right: 6px;
-			
-		}
-		&:after {
-			@include rotate(-27deg);
-			left: 6px;
-		}
-	}
-}
