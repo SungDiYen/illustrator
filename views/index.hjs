@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+        <meta name="name" content="content">
 		<title>{{ title }}</title>
 		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.css' />
 		<link rel='stylesheet' href='/css/layout.css' />
@@ -24,16 +25,16 @@
                     <h1 class="title">Sung,Di-Yen</h1>
                     <p class="para">Graphic, UI, Front-End Web Developer</p>
                     <button type="" id="js-slide--down" class="circular ui icon button slide--down">
-                        <svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-                        <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+                       <svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                            <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
                             <title>Oval 31 Copy + Triangle 1</title>
                             <desc>Created with Sketch.</desc>
                             <defs></defs>
                             <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                                <g id="Artboard-6" sketch:type="MSArtboardGroup" transform="translate(-59.000000, -64.000000)" stroke="#DFAA00">
+                                <g id="Export-SVG-Testing" sketch:type="MSArtboardGroup" transform="translate(-59.000000, -64.000000)" stroke="#DFAA00" stroke-width="2">
                                     <g id="Oval-31-Copy-+-Triangle-1" sketch:type="MSLayerGroup" transform="translate(60.000000, 65.000000)">
-                                        <path d="M25,50 C38.8071187,50 50,38.8071187 50,25 C50,11.1928813 38.8071187,0 25,0 C11.1928813,0 0,11.1928813 0,25 C0,38.8071187 11.1928813,50 25,50 Z" id="Oval-31-Copy" sketch:type="MSShapeGroup"></path>
-                                        <path d="M13,16 L37,16 L25,40 L13,16 Z" id="Triangle-1" sketch:type="MSShapeGroup"></path>
+                                        <path d="M25,50 C38.8071187,50 50,38.8071187 50,25 C50,11.1928813 38.8071187,0 25,0 C11.1928813,0 0,11.1928813 0,25 C0,38.8071187 11.1928813,50 25,50 Z" id="ovel" sketch:type="MSShapeGroup"></path>
+                                        <path d="M13,16 L37,16 L25,40 L13,16 Z" id="tri" sketch:type="MSShapeGroup"></path>
                                     </g>
                                 </g>
                             </g>
@@ -41,9 +42,124 @@
                     </button>
                 </section>
 			</article>
+            <article class="works">
+                <div class="ui grid">
+                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
+                        
+                    </div>
+                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
+                        
+                    </div>
+                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
+                        
+                    </div>
+
+                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
+                        
+                    </div>
+                </div>
+            </article>
+            <article class="intro">
+                <div class="ui grid container">
+                    <div class="column row">
+                        <div class="six wide column">
+                            pic
+                        </div>
+                        <div class="ten wide column">
+                            <section class="segment">
+                                <h3 class="name para">
+                                    <span class="ch">宋狄諺</span><span class="en">Sung, Di-Yen</span>
+                                </h3>
+                                <h3 class="job para">
+                                    <span class="ch">平面、介面設計師</span><span class="en">Graphic& UI Desiginer</span>
+                                </h3>
+                            </section>
+                            <section class="segment">
+                                <p class="ch para">來自台灣的平面、UI/UX設計師，目前專注於識別設計、介面設計以及網頁前端開發。</p>
+                                <p class="en para">Graphic/Web designer based in Taipei, Taiwan. Currently focusing on identity design, interfaces, web develop.</p>
+                            </section>
+                            <div class="ui equal width grid">
+                                <div class="column">
+                                    <section class="segment contact--info">
+                                        <p class="para">+886955257009</p>
+                                        <p class="para">sungdiyen@gmail.com</p>
+                                        <p class="para">23441 新北市永和區博愛街16號4樓</p>
+                                        <p class="para">4F., No.16, Bo’ai St., Yonghe Dist., New Taipei City 234, Taiwan</p>
+                                    </section>
+                                </div>
+                                <div class="column map">google map</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="intro">
+                <div class="ui grid container">
+                    <div class="column row">
+                        <div class="six wide column">
+                            <section class="service">
+                                <h3 class="title">
+                                    <span class="ch">服務項目</span><span class="en">Service</span>
+                                </h3>
+                                <ul class="list">
+                                    <li>
+                                        <span class="ch">平面設計</span><span class="en">Graphic</span>
+                                    </li>
+                                    <li>
+                                        <span class="ch">品牌／識別設計</span><span class="en">Identity</span>
+                                    </li>
+                                    <li>
+                                        <span class="ch">介面設計</span><span class="en">User Interface</span>
+                                    </li>
+                                    <li>
+                                        <span class="ch">網站前端開發</span><span class="en">Front-End Web Developer</span>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                        <div class="ten wide column">
+                            <section class="contact">
+                                <h3 class="title">
+                                    <span class="ch">快速聯繫</span><span class="en">Contact</span>
+                                </h3>
+                                <div class="form">
+                                    <div class="field">
+                                        <input id="client__name" type="text" autocomplete required maxlength="40">
+                                        <label for="client__name">姓名  Name*</label>
+                                    </div>
+                                    <div class="field">
+                                        <input id="client__email" type="text" autocomplete required maxlength="40">
+                                        <label for="client__email">信箱  Email*</label>
+                                    </div>
+                                    <div class="field">
+                                        <textarea></textarea>
+                                        <label>訊息  Messages*</label>
+                                    </div>
+                                    <div class="ui two attached buttons">
+                                        <div class="ui vertical animated button clear">
+                                            <div class="visible content">clear</div>
+                                            <div class="hidden content">
+                                                <i class="remove icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ui vertical animated button send">
+                                            <div class="visible content">Send</div>
+                                            <div class="hidden content">
+                                                <i class="send Outline icon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </article>
             <!-- footer -->
-            <footer>
-                
+            <footer class="footer--main">
+                <section class="ui container">
+                    <p class="para copyright">© 2015</p>
+                </section>
             </footer>
 		</main>
 	</body>
@@ -56,6 +172,14 @@
         $('.landing').css({
             'height': screen_height,
             'width': screen_width,
+        });
+
+        $('.field input').blur(function() {
+            if( $(this).val() !== '' ){
+                $(this).siblings('label').addClass('fixed');
+            }else {
+                $(this).siblings('label').removeClass('fixed');
+            }
         });
     </script>
 </html>

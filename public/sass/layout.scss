@@ -30,9 +30,10 @@ main {
 		}
 	}
 	.landing {
-		position: absolute;
-		top: 0;
+		position: relative;
+		top:  0;
 		left: 0;
+		margin-top: -69px;	//減去header's height
 		overflow: hidden;
 		.landing__intro {
 			color: $yl;
@@ -55,13 +56,160 @@ main {
 				background: transparent;
 				padding: 0;
 				margin: 0;
+				svg {
+					path {
+						@include transition(all .28s ease-in-out);
+						&#tri {
+							fill: transparent;
+							//必須要先有預設值，hover時才會有transition的變化
+						}
+					}
+					&:hover {
+						path#tri {
+							fill: $yl;
+						}
+					}
+				}
 			}
 		}
 		.landing__bg {
 			width: 100%;
-			position: fixed;
+			position: absolute;
+			top: 0;
 		}
-	}	
+	}
+	.intro {
+		padding-top: 60px;
+		.segment {
+			color: $gn;
+			font-size: rem(16);
+			line-height: 1.6;
+			margin-bottom: 60px;
+			.name, .job {
+				font-size: rem(18);
+				font-weight: 700;
+				.ch {
+					margin-right: 20px;
+				}
+			}
+			.para {
+				margin-bottom: 10px;
+			}
+			&.contact--info {
+				margin-bottom: 0;
+			}
+		}
+		.service, .contact {
+			.title {
+				font-size: rem(18);
+				color: $yl;
+				margin-bottom: 40px;
+				font-weight: 700;
+				.ch {
+					margin-right: 10px;
+				}
+			}
+		}
+		.contact {
+			.form {
+				.buttons {
+					margin-top: 30px;
+					@include border-radius(5px);
+					overflow: hidden;
+					.button {
+						font-size: rem(16);
+						&.clear {
+							@include flex(1);
+							background: $grey--light;
+							color: $grey--dark;
+						}
+						&.send {
+							@include flex(7);
+							color: $yl;
+							background: #FFF;
+							background-image: linear-gradient(90deg, #8C034D 0%, #10500C 90%);
+							.icon {
+								
+							}
+						}
+					}
+				}
+			}
+		}
+		.service {
+			.list {
+				li {
+					color: $gn;
+					font-size: rem(16);
+					margin-bottom: 20px;
+					.ch {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+	.footer--main {
+		border-top: 1px solid $grey--dark;
+		margin-top: 60px;
+		padding: 60px 0;
+	}
 }
-
+.form {
+	.field {
+		position: relative;
+		margin-top: 30px;
+		label {
+			font-size: rem(14);
+			color: $gn;
+			@include transition(all .28s ease-in-out);
+			&.fixed {
+				position: absolute;
+				top: rem(-16);
+				font-size: rem(12);
+				color: $grey--dark;
+			}
+		}
+		input {
+			background: transparent;
+			border: 0;
+			border-bottom: 1px solid $grey--light;
+			padding: 0 0 10px 0px;
+			font-size: rem(16);
+			outline: none;
+			position: relative;
+			width: 100%;
+			+label {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			&:focus {
+				+label {
+					color: $grey--dark;
+					top: rem(-16);
+					font-size: rem(12);
+				}
+			}
+		}
+		textarea {
+			margin-top: 25px; //save space for label
+			outline: none;
+			width: 100%;
+			border: 1px solid $grey--light;
+			height: 100px;
+			@include border-radius(5px);
+			+label {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&:focus {
+				+label {
+					color: $grey--dark;
+				}
+			}
+		}
+	}
+}
 /* self define*/
