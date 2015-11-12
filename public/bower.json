@@ -1,0 +1,14 @@
+{
+  "name": "SungDiYen",
+  "description": "none",
+  "main": "app.js",
+  "authors": [
+    "SungDiYen <sungdiyen@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/SungDiYen/illustrator",
+  "moduleType": [],
+  "dependencies": {
+    "semantic-ui": "~2.0.8"
+  }
+}

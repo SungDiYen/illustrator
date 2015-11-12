@@ -1,5 +1,103 @@
+@import 'compass',
+		'compass/reset',
+		'color.scss';
+		
+
+$browser-context: 16; // Default
+
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem;
+}
+
 body {
-	background: #f7f7f7;
-	color: #aaa;
-	width: 100%;
+	background: $body__bgc;
+}
+main {
+	.header--main {
+		position: relative;
+		z-index: 9;
+		.menu {
+			a {
+				color: #fff;
+				font-size: rem(24);
+				margin: rem(40) rem(40) 0 0;
+				padding-bottom: 5px;
+				&:hover {
+					border-bottom: 2px solid #fff;
+					//@include transition(all .28s ease-in-out);
+				}
+			}
+		}
+	}
+	.landing {
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		.landing__intro {
+			color: $yl;
+			position: relative;
+			z-index: 1;
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+			@include flex-direction(column);
+			height: 100%;
+			.title {
+				font-size: rem(64);
+				padding-bottom: 20px;
+			}
+			.para {
+				font-size: rem(18);
+				padding-bottom: 40px;
+			}
+			.slide--down {
+				$size:  50px;
+				width:  $size;
+				height: $size;
+				background: transparent;
+				border: 2px solid $yl;
+				@include border-radius(50%);
+				position: relative;
+			}
+		}
+		.landing__bg {
+			width: 100%;
+			position: fixed;
+		}
+	}	
+}
+
+/* self define*/
+
+.ui.button>.icon {
+	&.arrow--down {
+		//position: static;
+		position: absolute;
+		top: 14px;
+		right: 0;
+		left: 0;
+		margin: auto;
+		height: 2px;
+		width: 26px;
+		background: $yl;
+		&:before, &:after {
+			content: '';
+			height: 26px;
+			width: 2px;
+			background: $yl!important;
+			display: block;
+			position: absolute;
+			top: 0px;
+		}
+		&:before {
+			@include rotate(27deg);
+			right: 6px;
+			
+		}
+		&:after {
+			@include rotate(-27deg);
+			left: 6px;
+		}
+	}
 }
