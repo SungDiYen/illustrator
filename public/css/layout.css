@@ -17,10 +17,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 body { background: #f7f7f7; }
 
-main .header--main { position: relative; z-index: 9; }
-main .header--main .menu a { color: #fff; font-size: 1.5rem; margin: 2.5rem 2.5rem 0 0; padding-bottom: 5px; }
-main .header--main .menu a:hover { border-bottom: 2px solid #fff; }
-main .landing { position: relative; top: 0; left: 0; margin-top: -69px; overflow: hidden; }
+main .header--main { position: relative; position: fixed; z-index: 9; width: 100%; -moz-transition: all 0.5s ease-in; -o-transition: all 0.5s ease-in; -webkit-transition: all 0.5s ease-in; transition: all 0.5s ease-in; }
+main .header--main .menu a { color: #f7f7f7; font-size: 1.5rem; margin: 2.5rem 2.5rem 1.5rem 0; padding-bottom: 5px; border-bottom: 2px solid transparent; -moz-transition: all 0.28s ease-in-out; -o-transition: all 0.28s ease-in-out; -webkit-transition: all 0.28s ease-in-out; transition: all 0.28s ease-in-out; }
+main .header--main .menu a:hover { border-color: #f7f7f7; }
+main .header--main .menu a.active { color: #DFAA00; }
+main .header--main.fixed { position: fixed; z-index: 9999; top: 0; background: #10500c; }
+main .landing { position: relative; top: 0; left: 0; overflow: hidden; }
 main .landing .landing__intro { color: #DFAA00; position: relative; z-index: 1; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; -webkit-flex-direction: column; flex-direction: column; height: 100%; }
 main .landing .landing__intro .title { font-size: 4rem; padding-bottom: 20px; }
 main .landing .landing__intro .para { font-size: 1.125rem; padding-bottom: 40px; }
@@ -29,6 +31,15 @@ main .landing .landing__intro .slide--down svg path { -moz-transition: all 0.28s
 main .landing .landing__intro .slide--down svg path#tri { fill: transparent; }
 main .landing .landing__intro .slide--down svg:hover path#tri { fill: #DFAA00; }
 main .landing .landing__bg { width: 100%; position: absolute; top: 0; }
+main .landing .landing__bg.width { width: 100%; height: auto; }
+main .landing .landing__bg.height { width: auto; height: 100%; }
+main .works { padding: 120px 0; position: relative; top: 0; }
+main .works > .ui.grid { margin: 0; }
+main .works .card .dimmer .segment { color: #10500c; margin: 30px; text-align: left; }
+main .works .card .dimmer .segment > .title { margin-bottom: 10px; border-bottom: 1px solid #d3d2d2; padding-bottom: 10px; font-weight: 700; font-size: 1.125rem; }
+main .works .card .dimmer .segment > .details .item { line-height: 1.6; }
+main .works .card .dimmer .segment .button { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; margin: 20px 0 0; border: 2px solid #10500c; color: #10500c; background: transparent; }
+main .works .card .dimmer .segment .button:hover { background: #10500c; color: #f7f7f7; }
 main .intro { padding-top: 60px; }
 main .intro .segment { color: #10500c; font-size: 1rem; line-height: 1.6; margin-bottom: 60px; }
 main .intro .segment .name, main .intro .segment .job { font-size: 1.125rem; font-weight: 700; }
@@ -40,7 +51,7 @@ main .intro .service .title .ch, main .intro .contact .title .ch { margin-right:
 main .intro .contact .form .buttons { margin-top: 30px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; overflow: hidden; }
 main .intro .contact .form .buttons .button { font-size: 1rem; }
 main .intro .contact .form .buttons .button.clear { -webkit-flex: 1; flex: 1; background: #d3d2d2; color: #8c8c8c; }
-main .intro .contact .form .buttons .button.send { -webkit-flex: 7; flex: 7; color: #DFAA00; background: #FFF; background-image: linear-gradient(90deg, #8c034d 0%, #10500c 90%); }
+main .intro .contact .form .buttons .button.send { -webkit-flex: 7; flex: 7; color: #DFAA00; background: #f7f7f7; background-image: linear-gradient(90deg, #8c034d 0%, #10500c 90%); }
 main .intro .service .list li { color: #10500c; font-size: 1rem; margin-bottom: 20px; }
 main .intro .service .list li .ch { margin-right: 10px; }
 main .footer--main { border-top: 1px solid #8c8c8c; margin-top: 60px; padding: 60px 0; }
@@ -49,11 +60,12 @@ main .footer--main { border-top: 1px solid #8c8c8c; margin-top: 60px; padding: 6
 .form .field label { font-size: 0.875rem; color: #10500c; -moz-transition: all 0.28s ease-in-out; -o-transition: all 0.28s ease-in-out; -webkit-transition: all 0.28s ease-in-out; transition: all 0.28s ease-in-out; }
 .form .field label.fixed { position: absolute; top: -1rem; font-size: 0.75rem; color: #8c8c8c; }
 .form .field input { background: transparent; border: 0; border-bottom: 1px solid #d3d2d2; padding: 0 0 10px 0px; font-size: 1rem; outline: none; position: relative; width: 100%; }
-.form .field input + label { position: absolute; left: 0; top: 0; }
+.form .field input + label { position: absolute; left: 0; top: 0; cursor: text; }
 .form .field input:focus + label { color: #8c8c8c; top: -1rem; font-size: 0.75rem; }
 .form .field textarea { margin-top: 25px; outline: none; width: 100%; border: 1px solid #d3d2d2; height: 100px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
-.form .field textarea + label { position: absolute; top: 0; left: 0; }
+.form .field textarea + label { position: absolute; top: 0; left: 0; cursor: text; }
 .form .field textarea:focus + label { color: #8c8c8c; }
+.form .field .field__hint { position: absolute; top: 0; right: -160px; }
 
 /* self define*/
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/css/layout.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+ 
+    <form name="adduser" action="/adduser" method="post">
+      Username: <input type="text" name="username_test" placeholder="Enter Username">
+      Email: <input type="email" name="email_test" placeholder="Enter Email">
+      <input type="submit" value="Submit">
+    </form>
+    1345y2
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
+</html>

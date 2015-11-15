@@ -2,21 +2,25 @@
 <html>
 	<head>
         <meta name="name" content="content">
+        <meta name="p:domain_verify" content="75402b7de4ac7a9d64cd8e9506bc8311"/>
 		<title>{{ title }}</title>
 		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.css' />
 		<link rel='stylesheet' href='/css/layout.css' />
 	</head>
+    <script src="/js/ga.js"></script>
 	<body>
 		<main>
-            <header class="header--main ui container">
-                <nav class="ui secondary menu">
-                    <a href="" title="Projects">Projects</a>
-                    <a href="" title="About">About</a>
-                    <a href="" title="Contact">Contact</a>
-                </nav>
+            <header class="header--main">
+                <div class="ui container">
+                    <nav class="ui secondary menu js-nav">
+                        <a href="#js-works" role="spy_node" title="Projects">Projects</a>
+                        <a href="#js-about" role="spy_node" title="About">About</a>
+                        <a href="#js-contact" role="spy_node" title="Contact">Contact</a>
+                    </nav>
+                </div>
             </header>
             <!-- /header -->
-			<article class="landing">
+			<article class="landing js-landing">
                 <video class="landing__bg" autoplay loop muted 
                         poster="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
                     <source src="https://dl.dropboxusercontent.com/u/38967251/IMG_0901.m4v">
@@ -42,24 +46,42 @@
                     </button>
                 </section>
 			</article>
-            <article class="works">
-                <div class="ui grid">
-                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
-                        
-                    </div>
-                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
-                        
-                    </div>
-                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
-                        
-                    </div>
-
-                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column" style="background: red">
-                        
+            <article class="works" id="js-works">
+                <div class="ui grid container special cards">
+                    <div class="five wide computer    eight wide tablet     sixteen wide mobile column ">
+                        <div class="ui fluid card">
+                            <div class="blurring dimmable image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui tall stacked segment">
+                                                <h4 class="title">
+                                                    作品名稱
+                                                </h4>
+                                                <ul class="details">
+                                                    <li class="item type">類型：品牌識別</li>
+                                                    <!--<li class="item client">客戶：＠＃＄％</li>
+                                                    <li class="item time">時間：2015.05</li>-->
+                                                </ul>
+                                                <div class="ui button vertical animated" role="work__deails">
+                                                    <div class="visible content">
+                                                        more
+                                                    </div>
+                                                    <div class="hidden content">
+                                                        更了解它
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
-            <article class="intro">
+            <article class="intro" id="js-about">
                 <div class="ui grid container">
                     <div class="column row">
                         <div class="six wide column">
@@ -87,19 +109,21 @@
                                         <p class="para">4F., No.16, Bo’ai St., Yonghe Dist., New Taipei City 234, Taiwan</p>
                                     </section>
                                 </div>
-                                <div class="column map">google map</div>
+                                <div class="column map" id="map">
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </article>
-            <article class="intro">
+            <article class="intro" id="js-contact">
                 <div class="ui grid container">
                     <div class="column row">
                         <div class="six wide column">
                             <section class="service">
                                 <h3 class="title">
-                                    <span class="ch">服務項目</span><span class="en">Service</span>
+                                    <span class="ch">服務項目</span><span class="en">Services</span>
                                 </h3>
                                 <ul class="list">
                                     <li>
@@ -117,23 +141,26 @@
                                 </ul>
                             </section>
                         </div>
-                        <div class="ten wide column">
+                        <div class="eight wide column">
                             <section class="contact">
                                 <h3 class="title">
                                     <span class="ch">快速聯繫</span><span class="en">Contact</span>
                                 </h3>
                                 <div class="form">
                                     <div class="field">
-                                        <input id="client__name" type="text" autocomplete required maxlength="40">
+                                        <input id="client__name" type="text" autocomplete required maxlength="40" name="name">
                                         <label for="client__name">姓名  Name*</label>
                                     </div>
                                     <div class="field">
-                                        <input id="client__email" type="text" autocomplete required maxlength="40">
+                                        <input id="client__email" type="text" autocomplete required maxlength="40" name="email">
                                         <label for="client__email">信箱  Email*</label>
+                                        <div class="ui left pointing red basic label field__hint">
+                                            That name is taken!
+                                        </div>
                                     </div>
                                     <div class="field">
-                                        <textarea></textarea>
-                                        <label>訊息  Messages*</label>
+                                        <textarea id="client__message" name="msg"></textarea>
+                                        <label for="client__message">訊息  Messages*</label>
                                     </div>
                                     <div class="ui two attached buttons">
                                         <div class="ui vertical animated button clear">
@@ -142,7 +169,7 @@
                                                 <i class="remove icon"></i>
                                             </div>
                                         </div>
-                                        <div class="ui vertical animated button send">
+                                        <div class="ui vertical animated button send" id="send--message">
                                             <div class="visible content">Send</div>
                                             <div class="hidden content">
                                                 <i class="send Outline icon"></i>
@@ -158,22 +185,18 @@
             <!-- footer -->
             <footer class="footer--main">
                 <section class="ui container">
-                    <p class="para copyright">© 2015</p>
+                    <!--<p class="para copyright">© 2015</p>-->
                 </section>
             </footer>
 		</main>
 	</body>
-	 <script src="/bower_components/jquery/dist/jquery.min.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
 	<script src="/bower_components/semantic-ui/dist/semantic.min.js" ></script>
-   
-    <script>
-        var screen_height = $(window).height();
-        var screen_width = $(window).width();
-        $('.landing').css({
-            'height': screen_height,
-            'width': screen_width,
-        });
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQf8SqE-0aXi83IIuoehp_xrlfYff_g4g&sensor=false"></script>
+    <script src="js/map.js"></script>
+
+    <script>
         $('.field input').blur(function() {
             if( $(this).val() !== '' ){
                 $(this).siblings('label').addClass('fixed');
@@ -181,5 +204,128 @@
                 $(this).siblings('label').removeClass('fixed');
             }
         });
+
+        $('.special.cards .image').dimmer({
+            on: 'hover'
+        });
+
+        $('.button[role="work__details"]').modal('show');
+    </script>
+    <script>
+        function landing_view(){
+            var screen_height = $(window).height();
+            var screen_width  = $(window).width();
+            var landing_video_rwd = $('.landing__bg').height();
+            $('.landing').css({
+                'height': screen_height,
+                'width': screen_width,
+            });
+
+            if(landing_video_rwd > screen_height){
+                $('.landing__bg').removeClass('height').addClass('width');
+            }else if(landing_video_rwd == screen_height){
+                if( screen_width > $('.landing__bg').width() ){
+                    $('.landing__bg').removeClass('height').addClass('width');
+                }
+            }else {
+                $('.landing__bg').removeClass('width').addClass('height');
+            }
+            //console.log(landing_video_rwd,screen_height);
+        }
+
+        landing_view();
+        $(window).resize(landing_view);
+    </script>
+    <script>
+        $('#js-slide--down').click(function(event) {
+            var dist = $('#js-works').offset();
+            var body = $('html, body');
+            body.animate({scrollTop: dist.top}, '500', 'swing', function() {});
+        });
+    </script>
+    <script>
+    var nav_height = $('.js-nav').height();
+    nav_fixed(nav_height);
+
+        function nav_fixed(navHeight) {
+            $(window).scroll(function(){
+                var window_position = $('body').scrollTop();
+                if( window_position > ( $(window).height() - nav_height ) ) {
+                    $('.header--main').addClass('fixed');
+                }else {
+                    $('.header--main').removeClass('fixed');
+                }
+                //console.log(window_position);
+            })
+        };
+    </script>
+    <script>
+        $('#send--message').click(function(){
+            var clients = {}; //json 物件
+            clients.name = $('#client__name').val(),
+            clients.email = $('#client__email').val(),
+            clients.msg = $('#client__message').val();
+
+            $.post('/',clients ,function(data){
+                //回報前台 or somthing else
+                post_success();
+                //傳了 json 給⋯⋯url('/') 
+            });
+        });
+
+        function post_success(){
+            console.log(clients);
+        }
+    </script>
+    <script>
+    scrollSpy();
+        function scrollSpy(){
+            // 取得對應位置，監視位置與頂端的高度距離
+            var spy_node = $('a[role="spy_node"]');
+            var spy_node_num = spy_node.length -1;
+            var spy_segment_id = [];
+            var spy_swgmant_dist = [];
+
+            for (i = spy_node_num; i >= 0; i--) {
+               spy_segment_id[i] = spy_node.eq(i).attr('href');
+               spy_swgmant_dist[i] = $(spy_segment_id[i]).offset().top;
+            };
+            //console.log(spy_segment_id, spy_swgmant_dist);
+
+            $(spy_node).click(function(event) {
+                var spy_seg = this.hash; // .attr('href')
+                var spy_seg_dist = $( spy_seg ).offset().top - $('.header--main').height();
+                //因為 header 被 fixed 在頂端
+
+                $('html, body').stop().animate({scrollTop: spy_seg_dist}, '500', 'swing', function() {
+                    window.location.hash = spy_seg; // 讓 a標籤 換頁效果失效
+                });
+            });
+
+
+            $(window).scroll(function(){
+                var scroll_position = $('body').scrollTop() + $('.header--main').height() +1; 
+                //現在滑動位置
+                //因為 header 被 fixed 在頂端 & 確保 nav a 一定會加 active
+
+
+                function node_status(n) {
+                    $( spy_node.eq(n) ).addClass('active').siblings( spy_node ).removeClass('active');
+                }
+
+
+                if(scroll_position > spy_swgmant_dist[0] && scroll_position < spy_swgmant_dist[1] ){
+                    node_status(0);
+                }else if(scroll_position > spy_swgmant_dist[1] && scroll_position < spy_swgmant_dist[2] ){
+                    node_status(1);
+                }else if ( scroll_position > spy_swgmant_dist[2] ){
+                    node_status(2);
+                }else {
+                    $( spy_node ).removeClass('active');
+                }
+                //console.log(scroll_position);
+                //還要再更簡化
+            });
+        };
     </script>
 </html>

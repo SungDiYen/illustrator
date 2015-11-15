@@ -15,25 +15,39 @@ body {
 main {
 	.header--main {
 		position: relative;
+		position: fixed;
 		z-index: 9;
+		width: 100%;
+		@include transition(all .5s ease-in);
 		.menu {
 			a {
-				color: #fff;
+				color: $wt;
 				font-size: rem(24);
-				margin: rem(40) rem(40) 0 0;
+				margin: rem(40) rem(40) rem(24) 0;
 				padding-bottom: 5px;
+				border-bottom: 2px solid transparent;
+				@include transition(all .28s ease-in-out);
 				&:hover {
-					border-bottom: 2px solid #fff;
+					border-color: $wt;
 					//@include transition(all .28s ease-in-out);
 				}
+				&.active {
+					color: $yl;
+				}
 			}
+		}
+		&.fixed {
+			position: fixed;
+			z-index: 9999;
+			top: 0;
+			background: $gn;
 		}
 	}
 	.landing {
 		position: relative;
 		top:  0;
 		left: 0;
-		margin-top: -69px;	//減去header's height
+		//改用 js 控制 margin-top: -71px;	//減去header's height  && hover時的2px		
 		overflow: hidden;
 		.landing__intro {
 			color: $yl;
@@ -76,6 +90,56 @@ main {
 			width: 100%;
 			position: absolute;
 			top: 0;
+			&.width {
+				width: 100%;
+				height: auto;
+			}
+			&.height {
+				width: auto;
+				height: 100%;
+			}
+		}
+	}
+	.works {
+		padding: 60px*2 0;
+		position: relative;
+		top: 0;
+		>.ui.grid {
+			margin: 0;
+		}
+		.card {
+			.dimmer {
+				.segment {
+					color: $gn;
+					margin: 30px;
+					text-align: left;
+					>.title {
+						margin-bottom: 10px;
+						border-bottom: 1px solid $grey--light;
+						padding-bottom: 10px;
+						font-weight: 700;
+						font-size: rem(18);
+					}
+					>.details {
+						.item {
+							line-height: 1.6;
+						}
+					}
+					.button {
+						@include display-flex;
+						@include align-items(center);
+						@include justify-content(center);
+						margin: 20px 0 0;
+						border: 2px solid $gn;
+						color: $gn;
+						background: transparent;
+						&:hover {
+							background: $gn;
+							color: $wt;
+						}
+					}
+				}
+			}
 		}
 	}
 	.intro {
@@ -126,7 +190,7 @@ main {
 						&.send {
 							@include flex(7);
 							color: $yl;
-							background: #FFF;
+							background: $wt;
 							background-image: linear-gradient(90deg, #8C034D 0%, #10500C 90%);
 							.icon {
 								
@@ -183,6 +247,7 @@ main {
 				position: absolute;
 				left: 0;
 				top: 0;
+				cursor: text;
 			}
 			&:focus {
 				+label {
@@ -203,12 +268,20 @@ main {
 				position: absolute;
 				top: 0;
 				left: 0;
+				cursor: text;
 			}
 			&:focus {
 				+label {
 					color: $grey--dark;
 				}
 			}
+		}
+	}
+	.field {
+		.field__hint {
+			position: absolute;
+			top: 0;
+			right: -160px;
 		}
 	}
 }

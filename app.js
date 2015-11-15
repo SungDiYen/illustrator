@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 //var httpProxy = require('http-proxy');
 var routes = require('./routes/index');
 var users  = require('./routes/users');
+var add  = require('./routes/add');
 
 //AWS S3
 /*
@@ -16,18 +17,8 @@ aws.config.loadFromPath('./config.json');
 var s3 = new aws.S3();
 */
 
-//Connect to MongoDB
-//var mongo = require('mongodb');
-var mongoose  = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/db_no1');
-/*
-var Cat = mongoose.model('cat', { name: String});
-var kitty = new Cat({name: 'wertyu'});
-kitty.save(function(err){
-    if(err)
-        console.log('meow');
-});
-*/
+//插入db
+require( './db' );
 var app = express();
 
 
@@ -44,8 +35,16 @@ app.use(cookieParser());
 // Access css,js
 app.use(express.static('public'));
 
-app.get('/', routes);
+app.use('/', routes);
+app.post('/', routes);
+
 app.get('/users', users);
+
+app.get('/adduser', add);
+app.post('/adduser',add);// 必須加 post 才會作用
+// Post 流程 Step-1
+// 來自'/adduser'的 post 請求，使用 router/add.js 的 router.post
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
