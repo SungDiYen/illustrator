@@ -13,6 +13,25 @@ db.once('open', function callback () {
   console.log("Database Connected. 資料庫連結成功");
 });
 
+var projectSchema = new Schema({
+	cover_img : String, //url path
+	p_title: String,
+	p_cata: String,
+	p_intro: String,
+	data: {type: Date, default: Date.now},
+	hidden: Boolean,
+})
+
+var project = mongoose.model('project', projectSchema);
+
+
+
+
+
+
+
+
+//////////////////// Test ////////////////////
 
 //建立 schema 確認各欄位名稱與資料格式
 var movieSchema = new Schema({

@@ -2,27 +2,41 @@ var gulp       = require('gulp'),
 	nodemon    = require('gulp-nodemon'),
 	notify 	   = require('gulp-notify'), 	//變更通知
 	livereload = require('gulp-livereload'), //即時重整
-	compass    = require('gulp-compass');
+	rename     = require('gulp-rename'),
+	compass    = require('gulp-compass'),
+	minifycss  = require('gulp-minify-css'),
+	uglify     = require('gulp-uglify');
 
 
 //Task
 gulp.task('compass', function() {
 	gulp.src('public/sass/*.scss')
     .pipe(compass({
-      css : 'public/css',
-      sass: 'public/sass',
+      css : 'public/css',	//放置位置
+      sass: 'public/sass',	//來源
       config_file: 'config.rb',
       sourcemap: true,
       style: 'compact' //default: nested;
     }))
-    .pipe(gulp.dest('public/css'));
+    .pipe(minifycss())
+    .pipe(gulp.dest('public/css'));//處理 temp
 });
+
+gulp.task('uglify', function(){
+	gulp.src('public/js/*.js')
+	.pipe(uglify())
+	.pipe(rename(function(path){
+		path.basename += ".min";
+		path.extname = ".js";
+	}))
+	.pipe(gulp.dest('public/js'));
+})
 
 gulp.task('watch',function(){
     gulp.watch('public/sass/*.scss',['compass']);
 });
 
-gulp.task('default',['compass', 'watch'], function(){
+gulp.task('default',['compass', 'watch', 'uglify'], function(){
 	//listen for changes
 	livereload.listen();
 	//configure nodemon

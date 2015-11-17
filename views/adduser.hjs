@@ -1,18 +1,103 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/css/layout.css' />
-  </head>
-  <body>
-    <h1>{{ title }}</h1>
- 
-    <form name="adduser" action="/adduser" method="post">
-      Username: <input type="text" name="username_test" placeholder="Enter Username">
-      Email: <input type="email" name="email_test" placeholder="Enter Email">
-      <input type="submit" value="Submit">
-    </form>
-    1345y2
-  </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
+    <head>
+        <title>{{ title }}</title>
+        <link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
+        <link rel='stylesheet' href='/css/layout.css' />
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <form name="adduser" action="/adduser" method="post">
+            Username: <input type="text" name="username_test" placeholder="Enter Username">
+            Email: <input type="email" name="email_test" placeholder="Enter Email">
+            <input type="submit" value="Submit">
+        </form>
+<br>
+        <br>
+        <br>
+        <p>{{ data }}</p>
+        <br>
+        <br>
+        <br>
+        {{#data_three}} 
+         <p> {{.}} </p>
+         {{/data_three}} 
+        <br>
+        <br>
+
+        <p> {{ data_col}} </p>
+        <br>
+        {{#repo}}
+        <div class="aa" style="color: red">
+            {{name}} is number
+        </div>
+        {{/repo}}
+        
+
+        <p> {{ data_username}} </p>
+        <p> {{ data_email}} </p>
+        <p> {{ data_id}} </p>
+        <br>
+        <p> {{func}} </p>
+
+        {{#wording}}
+            {{name_w}} is girl
+        {{/wording}}
+        <br><br>
+        <br><br>
+        {{#repo}}    
+        {{/repo}}
+        {{^repo}}
+            no repo// 沒有值的話，就會出現
+        {{/repo}}
+        <div style="font-size: 18px">
+            {{! ignoreeee}} 利用! 來忽略hogan傳來的值
+        </div>
+         <br><br><br><br>
+
+        <br><br>
+
+        {{#wrap_box_2}}
+        <div class="ui fluid card" style="width: 500px; border: 3px solid red">
+            <div class="blurring dimmable image">
+                <h4 class="title">{{main}}</h4>
+                <ul class="details">
+                    <li class="item type"> {{cata}}</li>
+                </ul>
+                <div class="ui button vertical animated" role="work__deails">
+                    <div class="visible content"> {{btn_v}}</div>
+                    <div class="hidden content">{{btn_h}}</div>
+                </div>
+                <img {{img}} alt="">
+            </div>
+        </div>
+        {{/wrap_box_2}}
+
+        <br><br><br><br>
+         <button id="get">
+             GET
+         </button>
+
+
+    </body>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
+    <script src="/bower_components/semantic-ui/dist/semantic.min.js" ></script>
+    <script>
+                $('#get').click(function(){
+                        $.get('/',clients ,function(data){
+                                //回報前台 or somthing else
+                                post_success();
+                                //傳了 json 給⋯⋯url('/') 
+                        });
+                });
+
+                function post_success(){
+                        //console.log(clients);
+                }
+        </script>
 </html>

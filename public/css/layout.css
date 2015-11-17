@@ -67,6 +67,10 @@ main .footer--main { border-top: 1px solid #8c8c8c; margin-top: 60px; padding: 6
 .form .field textarea:focus + label { color: #8c8c8c; }
 .form .field .field__hint { position: absolute; top: 0; right: -160px; }
 
-/* self define*/
+.ui.modals.page { cursor: -webkit-zoom-out; cursor: -moz-zoom-out; cursor: zoom-out; }
+
+.works--overlay { cursor: default; }
+.works--overlay .header .title { color: #10500c; font-size: 1.5rem; }
+.works--overlay .header .cata { color: #8c8c8c; font-size: 1rem; }
 
 /*# sourceMappingURL=layout.css.map */

@@ -285,4 +285,24 @@ main {
 		}
 	}
 }
-/* self define*/
+
+
+// sematic's js 取出放置body 下層
+.ui.modals.page {
+	cursor: -webkit-zoom-out;
+	cursor: -moz-zoom-out;
+	cursor: zoom-out;
+}
+.works--overlay {
+	cursor: default;
+	.header {
+		.title {
+			color: $gn;
+			font-size: rem(24);
+		}
+		.cata {
+			color: $grey--dark;
+			font-size: rem(16);
+		}
+	}
+}

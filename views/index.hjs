@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <meta name="name" content="content">
+        <meta charset="utf-8">
+        <meta name="description" content="Sung,Di-Yen｜宋狄諺，實驗性網站">
+        <meta name="robots" content />
         <meta name="p:domain_verify" content="75402b7de4ac7a9d64cd8e9506bc8311"/>
 		<title>{{ title }}</title>
-		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.css' />
+		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
 		<link rel='stylesheet' href='/css/layout.css' />
 	</head>
     <script src="/js/ga.js"></script>
@@ -63,7 +65,7 @@
                                                     <!--<li class="item client">客戶：＠＃＄％</li>
                                                     <li class="item time">時間：2015.05</li>-->
                                                 </ul>
-                                                <div class="ui button vertical animated" role="work__deails">
+                                                <div class="ui button vertical animated" role="work__details">
                                                     <div class="visible content">
                                                         more
                                                     </div>
@@ -182,6 +184,28 @@
                     </div>
                 </div>
             </article>
+            <section class="ui modal works--overlay">
+                <header class="header">
+                    <span class="cata">平面、識別設計⋯⋯</span>
+                    <h3 class="title">作品名稱</h3>
+                </header>
+                <div class="content">
+                    <section class="ui vertical segment">
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </section>
+                    <section class="ui vertical segment">
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </section>
+                    <div class="image content">
+                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
+                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
+                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
+                        <div class="description">
+                        description
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- footer -->
             <footer class="footer--main">
                 <section class="ui container">
@@ -194,7 +218,7 @@
 	<script src="/bower_components/semantic-ui/dist/semantic.min.js" ></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQf8SqE-0aXi83IIuoehp_xrlfYff_g4g&sensor=false"></script>
-    <script src="js/map.js"></script>
+    <script src="js/map.min.js"></script>
 
     <script>
         $('.field input').blur(function() {
@@ -209,7 +233,13 @@
             on: 'hover'
         });
 
-        $('.button[role="work__details"]').modal('show');
+        $('.button[role="work__details"]').click(function(event) {
+            $('.works--overlay')
+                .modal({
+                    blurring: true,
+                })
+                .modal('show');
+        });
     </script>
     <script>
         function landing_view(){
@@ -259,25 +289,7 @@
             })
         };
     </script>
-    <script>
-        $('#send--message').click(function(){
-            var clients = {}; //json 物件
-            clients.name = $('#client__name').val(),
-            clients.email = $('#client__email').val(),
-            clients.msg = $('#client__message').val();
-
-            $.post('/',clients ,function(data){
-                //回報前台 or somthing else
-                post_success();
-                //傳了 json 給⋯⋯url('/') 
-            });
-        });
-
-        function post_success(){
-            console.log(clients);
-        }
-    </script>
-    <script>
+     <script>
     scrollSpy();
         function scrollSpy(){
             // 取得對應位置，監視位置與頂端的高度距離
@@ -328,4 +340,30 @@
             });
         };
     </script>
+
+
+
+
+
+    
+    <script>
+        $('#send--message').click(function(){
+            var clients = {}; //json 物件
+            clients.name = $('#client__name').val(),
+            clients.email = $('#client__email').val(),
+            clients.msg = $('#client__message').val();
+
+            $.post('/',clients ,function(data){
+                //回報前台 or somthing else
+                post_success();
+                //傳了 json 給⋯⋯url('/') 
+            });
+        });
+
+        function post_success(){
+            console.log(clients);
+        }
+    </script>
+
+    
 </html>
