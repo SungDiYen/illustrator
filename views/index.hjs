@@ -9,7 +9,7 @@
 		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
 		<link rel='stylesheet' href='/css/layout.css' />
 	</head>
-    <script src="/js/ga.js"></script>
+    <script src="/js/min/ga.js"></script>
 	<body>
 		<main>
             <header class="header--main">
@@ -218,7 +218,7 @@
 	<script src="/bower_components/semantic-ui/dist/semantic.min.js" ></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQf8SqE-0aXi83IIuoehp_xrlfYff_g4g&sensor=false"></script>
-    <script src="js/map.min.js"></script>
+    <script src="js/min/map.min.js"></script>
 
     <script>
         $('.field input').blur(function() {

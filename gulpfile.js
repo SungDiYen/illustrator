@@ -34,9 +34,10 @@ gulp.task('uglify', function(){
 
 gulp.task('watch',function(){
     gulp.watch('public/sass/*.scss',['compass']);
+    gulp.watch('public/js/*.js',['uglify'])
 });
 
-gulp.task('default',['compass', 'watch', 'uglify'], function(){
+gulp.task('default',['compass', 'watch'], function(){
 	//listen for changes
 	livereload.listen();
 	//configure nodemon
