@@ -29,7 +29,7 @@ gulp.task('uglify', function(){
 		path.basename += ".min";
 		path.extname = ".js";
 	}))
-	.pipe(gulp.dest('public/js'));
+	.pipe(gulp.dest('public/js/min'));
 })
 
 gulp.task('watch',function(){
