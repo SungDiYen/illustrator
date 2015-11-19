@@ -4,9 +4,8 @@
 		
 
 $browser-context: 16; // Default
-
 @function rem($pixels, $context: $browser-context) {
-  @return #{$pixels/$context}rem;
+	@return #{$pixels/$context}rem;
 }
 
 body {
@@ -234,7 +233,7 @@ main {
 				color: $grey--dark;
 			}
 		}
-		input {
+		input[type="text"] {
 			background: transparent;
 			border: 0;
 			border-bottom: 1px solid $grey--light;

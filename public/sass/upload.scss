@@ -1,0 +1,19 @@
+@import 'compass',
+		'compass/reset',
+		'color.scss';
+		
+$browser-context: 16; // Default
+@function rem($pixels, $context: $browser-context) {
+	@return #{$pixels/$context}rem;
+}
+
+
+h1 {
+	padding: 60px 0;
+	font-size: rem(48);
+}
+.segment-title {
+	color: $gn;
+	font-size: rem(28);
+	margin-bottom: 30px;
+}

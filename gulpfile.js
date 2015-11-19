@@ -23,7 +23,7 @@ gulp.task('compass', function() {
 });
 
 gulp.task('uglify', function(){
-	gulp.src('public/js/*.js')
+	return gulp.src('public/js/*.js')
 	.pipe(uglify())
 	.pipe(rename(function(path){
 		path.basename += ".min";

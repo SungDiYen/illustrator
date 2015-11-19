@@ -1,0 +1,11 @@
+
+##註解
+
+config.json
+
+/public/bower_components
+.sass-cache
+
+
+.tmp
+Thumb.db

@@ -24,9 +24,9 @@ router.get('/adduser', function(req, res) {
 	    	return console.err(err);
 	    }else{
 	    	console.dir('確實可以連接到userCollection');
-			var html = docs; // json object
 
-			
+	    	///// 其實用不到這些資料 Start //////
+			var html = docs; // json object
 				var json_str = JSON.stringify(docs); // string
 				var json_obg = JSON.parse(json_str); // object
 
@@ -47,7 +47,7 @@ router.get('/adduser', function(req, res) {
 				})
 				//return level_one
 			
-
+			///// 其實用不到這些資料 End //////
 
 			res.render('adduser', {
 				// 標頭盡量不要重複取名

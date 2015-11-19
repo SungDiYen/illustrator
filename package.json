@@ -25,6 +25,6 @@
     "gulp-notify": "^2.2.0",
     "hjs": "0.0.6",
     "node-sass-middleware": "^0.9.0",
-    "vhost": "^3.0.1"
+    "vhost": "^3.0.1",
   }
 }

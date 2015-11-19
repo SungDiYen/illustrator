@@ -3,13 +3,14 @@
 	<head>
         <meta charset="utf-8">
         <meta name="description" content="Sung,Di-Yen｜宋狄諺，實驗性網站">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="robots" content />
         <meta name="p:domain_verify" content="75402b7de4ac7a9d64cd8e9506bc8311"/>
 		<title>{{ title }}</title>
 		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
 		<link rel='stylesheet' href='/css/layout.css' />
+        <script src="/js/min/ga.min.js"></script>
 	</head>
-    <script src="/js/min/ga.js"></script>
 	<body>
 		<main>
             <header class="header--main">
@@ -219,16 +220,10 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQf8SqE-0aXi83IIuoehp_xrlfYff_g4g&sensor=false"></script>
     <script src="js/min/map.min.js"></script>
+    <script src="js/min/layout.min.js"></script>
+
 
     <script>
-        $('.field input').blur(function() {
-            if( $(this).val() !== '' ){
-                $(this).siblings('label').addClass('fixed');
-            }else {
-                $(this).siblings('label').removeClass('fixed');
-            }
-        });
-
         $('.special.cards .image').dimmer({
             on: 'hover'
         });

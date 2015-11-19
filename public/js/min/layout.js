@@ -1,0 +1,1 @@
+function field_label(){$(".field input").blur(function(){""!==$(this).val()?$(this).siblings("label").addClass("fixed"):$(this).siblings("label").removeClass("fixed")})}field_label();

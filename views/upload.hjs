@@ -1,11 +1,154 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
+<head>
+	<title>{{ title }}</title>
+	<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
 	<link rel='stylesheet' href='/css/layout.css' />
-  </head>
-  <body>
-    <h1>Welcome to {{ title }}</h1>
-  </body>
+	<link rel='stylesheet' href='/css/upload.css' />
+</head>
+<body>
+	<div class="ui container">
+		<h1>{{ title }}</h1>
+		<div class="ui equal width grid">
+			<section class="project--upload column">
+		        <h3 class="segment-title">
+		            <span class="ch">上傳檔案</span><span class="en">Upload</span>
+		        </h3>
+		        <form class="form" method="post" enctype="multipart/form-data" action="/upload">
+		            <div class="field">
+		                <input id="project__title" type="text" maxlength="40" name="title">
+		                <label for="project__title">作品名稱</label>
+		            </div>
+		            <div class="field">
+		            	<label for="project__cata">分類 Catalog</label>
+		            	<select name="catalog" class="ui dropdown" id="project__cata">
+		                	<option value="graphic">圖形設計</option>
+		                	<option value="illustration">插圖</option>
+		                	<option value="photo">攝影</option>
+		                	<option value="ui">介面設計</option>
+		                	<option value="ixd">交互設計</option>
+		                	<option value="ad">設計指導</option>
+		                	<option value="animation">動畫</option>
+		                	<option value="layout">排版</option>
+		                	<option value="font">字型設計</option>
+		                	<option value="branding">品牌推廣</option>
+		                	<option value="expo">實驗</option>
+		                	<option value="copy">短篇文字</option>
+		                </select>
+		            </div>
+		            <div class="field">
+		            	<div class="ui toggle checkbox">
+		            		<input type="checkbox" checked="checked" id="project__status">
+	       	 				<label>Do not include a receipt in the package</label>
+		            	</div>
+		            </div>
+		            <div class="field">
+		                <textarea id="project__content" name="content"></textarea>
+		                <label for="project__content">內容  Content</label>
+		            </div>
+        			<div class="field">
+        				<input type="file" name="image" id="project__cover">
+        			</div>
+		            <div class="ui two attached buttons">
+		                <div class="ui vertical animated button send" id="upload--project">
+		                    <div class="visible content">上傳</div>
+		                    <div class="hidden content">
+		                        <i class="send Outline icon"></i>
+		                    </div>
+		                </div>
+		            </div>
+		           
+		        </form>
+			   <!-- <form action="" method="post" enctype="multipart/form-data">
+					<input type="file"  id="input_file" name='file'>
+				</form>-->
+		    </section>
+		    <section class="column">
+		    	<h3 class="segment-title">
+		            <span class="ch">作品列表</span>
+		        </h3>
+		        <div>
+		        	<br>
+		        	<br>
+		        	{{#p_con}}
+		        		<div style=" border: 1px solid red">
+		        			<!--<b class="id"> {{id}} </b>-->
+		        			<p>{{project_title}}</p>
+		        			<p>{{project_catalog}}</p>
+		        			<b> {{cover_img}} </b>
+		        			<!--<img src="/images/pro_test.jpg" alt="">-->
+		        			<img src= /images/{{cover_img}} alt="">
+		        			<button type="" class="del">刪除</button>
+		        		</div>
+		        	{{/p_con}}
+		        </div>
+		    </section>
+		</div>
+	</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
+<script src="/bower_components/semantic-ui/dist/semantic.min.js"></script>
+<!--
+<script src="/js/min/layout.min.js"></script>
+-->
+
+<script>
+	$('.ui.dropdown').dropdown();
+</script>
+<script>
+
+
+	$('#upload--project').click(function() {
+		var project = {};
+		function drop(){
+			if( $('#project__status').prop('checked') == true ){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		function url_rename(){
+			var ori = $('#project__cover').val();
+			var url_name = ori.replace("C:\\fakepath\\", "");;
+			return url_name;
+		}
+		project.title   = $('#project__title').val();
+		project.cata    = $('#project__cata').val();
+		project.content = $('#project__content').val();
+		project.status  =  drop();
+		project.image   =  url_rename();
+
+
+		//console.log(project.title, project.cata, project.content, project.status );
+		//console.log(project);
+		ajax_post(project);
+	});
+	
+	function ajax_post(jsonData){
+		//換寫法
+		//$.post('/upload', jsonData, function(){
+		//	console.log('上傳中');
+		//})
+		$.ajax({
+			type: 'POST',
+			url: '/upload',
+			//data: jsonData,
+			data: jsonData,
+			dataType: 'JSON',
+			success: function(status){
+				console.log(status);
+			},
+			error: function(err){
+				console.log(err);
+			}
+		})
+	}
+	
+</script>
+<script>
+	$('.del').click(function(event) {
+		var ta = $(this).siblings('.id').text();
+		$.post('/del', ta);
+	});
+</script>
 </html>
