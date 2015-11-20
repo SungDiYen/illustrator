@@ -77,7 +77,7 @@
 		        			<p>{{project_catalog}}</p>
 		        			<b> {{cover_img}} </b>
 		        			<!--<img src="/images/pro_test.jpg" alt="">-->
-		        			<img src= /images/{{cover_img}} alt="">
+		        			<img src= /images/{{cover_img}} alt="" style="width: 100%">
 		        			<button type="" class="del">刪除</button>
 		        		</div>
 		        	{{/p_con}}

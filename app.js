@@ -52,8 +52,8 @@ app.get('/users', users);
 app.get('/upload', upload.displayView);
 app.post('/upload', upload.uploadProject);
 
-/**/
-app.use(multer({dest:'./public/images',}).single('photo'));
+/**/ //PASS
+//app.use(multer({dest:'./public/images',}).single('photo'));
 /**/
 
 app.get('/adduser', add);
