@@ -83,6 +83,15 @@
 		        	{{/p_con}}
 		        </div>
 		    </section>
+		    <section class="column">
+		    	<h3 class="segment-title">
+		            <span class="ch">圖片上傳測試</span>
+		        </h3>
+		        <form class="form" method="post" enctype="multipart/form-data" action="/upload">
+		        	<input type="file" name="test_photo">
+		        	<button type="submit" name="submit">上傳</button>
+		        </form>
+		    </section>
 		</div>
 	</div>
 </body>
@@ -121,7 +130,7 @@
 
 		//console.log(project.title, project.cata, project.content, project.status );
 		//console.log(project);
-		ajax_post(project);
+		//ajax_post(project);
 	});
 	
 	function ajax_post(jsonData){

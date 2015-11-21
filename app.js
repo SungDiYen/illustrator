@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs'); //file system
-
+var multer  = require('multer'); //multi-part/form
 //var http = require('http');
 //var httpProxy = require('http-proxy');
 var routes = require('./routes/index');
@@ -20,7 +20,7 @@ aws.config.loadFromPath('./config.json');
 var s3 = new aws.S3();
 */
 
-var multer  = require('multer');
+
 
 
 
@@ -50,14 +50,19 @@ app.post('/', routes);
 app.get('/users', users);
 
 app.get('/upload', upload.displayView);
-app.post('/upload', upload.uploadProject);
+//app.post('/upload', upload.uploadProject);
 
-/**/ //PASS
-//app.use(multer({dest:'./public/images',}).single('photo'));
-/**/
+app.post('/upload',multer({dest:'./public/images'}).single('test_photo'), function(req, res, next){
+    //dest: 檔案儲存路徑
+    //single: input, name欄位
+    console.log('Work');
+});
+
+
+
 
 app.get('/adduser', add);
-app.post('/adduser',add);// 必須加 post 才會作用
+//app.post('/adduser',add);// 必須加 post 才會作用
 
 app.post('/del', del);
 // Post 流程 Step-1
