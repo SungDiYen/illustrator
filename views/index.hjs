@@ -51,6 +51,7 @@
 			</article>
             <article class="works" id="js-works">
                 <div class="ui grid container special cards">
+                    {{#project}}
                     <div class="five wide computer    eight wide tablet     sixteen wide mobile column ">
                         <div class="ui fluid card">
                             <div class="blurring dimmable image">
@@ -59,10 +60,10 @@
                                         <div class="center">
                                             <div class="ui tall stacked segment">
                                                 <h4 class="title">
-                                                    作品名稱
+                                                    {{project_title}}
                                                 </h4>
                                                 <ul class="details">
-                                                    <li class="item type">類型：品牌識別</li>
+                                                    <li class="item type">類型：{{project_catalog}}</li>
                                                     <!--<li class="item client">客戶：＠＃＄％</li>
                                                     <li class="item time">時間：2015.05</li>-->
                                                 </ul>
@@ -82,6 +83,7 @@
                             </div>
                         </div>
                     </div>
+                    {{/project}}
                 </div>
             </article>
             <article class="intro" id="js-about">
@@ -185,10 +187,34 @@
                     </div>
                 </div>
             </article>
+            <!-- modal用 -->
             <section class="ui modal works--overlay">
+                <i class="close icon"></i>
                 <header class="header">
                     <span class="cata">平面、識別設計⋯⋯</span>
                     <h3 class="title">作品名稱</h3>
+                </header>
+                <div class="content">
+                    <section class="ui vertical segment">
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </section>
+                    <section class="ui vertical segment">
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </section>
+                    <div class="image content">
+                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
+                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
+                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
+                        <div class="description">
+                        description
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="ui modal works--overlay">
+                <header class="header">
+                    <span class="cata">平fvrejkb ire erg rg</span>
+                    <h3 class="title">作品gre gergerg er名稱</h3>
                 </header>
                 <div class="content">
                     <section class="ui vertical segment">
@@ -232,6 +258,7 @@
             $('.works--overlay')
                 .modal({
                     blurring: true,
+                    allowMultiple: false,
                 })
                 .modal('show');
         });
@@ -343,6 +370,7 @@
     
     <script>
         $('#send--message').click(function(){
+            console.log('wefew');
             var clients = {}; //json 物件
             clients.name = $('#client__name').val(),
             clients.email = $('#client__email').val(),

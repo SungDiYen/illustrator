@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs'); //file system
-var multer  = require('multer'); //multi-part/form
+
 //var http = require('http');
 //var httpProxy = require('http-proxy');
 var routes = require('./routes/index');
@@ -19,6 +19,23 @@ var aws = require('aws-sdk');
 aws.config.loadFromPath('./config.json');
 var s3 = new aws.S3();
 */
+
+var multer  = require('multer'); //multi-part/form
+var upload_img = multer({
+                    dest:'./public/images',
+                    /*
+                    rename: function(fieldname, filename){
+                        return fieldname+'TEST';
+                    },
+                    onFileUploadStart: function (file) {
+                        console.log(file.originalname + ' is starting ...');
+                    },
+                    onFileUploadComplete: function (file) {
+                        console.log(file.fieldname + ' uploaded to  ' + file.path)
+                    },
+                    inMemory: true //This is important. It's what populates the buffer.
+                    */
+                });
 
 
 
@@ -49,16 +66,13 @@ app.post('/', routes);
 
 app.get('/users', users);
 
-app.get('/upload', upload.displayView);
-//app.post('/upload', upload.uploadProject);
-
-app.post('/upload',multer({dest:'./public/images'}).single('test_photo'), function(req, res, next){
-    //dest: 檔案儲存路徑
+app.get('/upload', upload.uploadView);
+//app.post('/upload', upload_img.single('test_photo'), upload.images);
+app.post('/upload', upload_img.array('test_photo', 12), upload.projects);
+//dest: 檔案儲存路徑
+    //array('photos', 12)上傳檔案 & formdata
     //single: input, name欄位
-    console.log('Work');
-});
-
-
+    //multer會自動幫你重新命名
 
 
 app.get('/adduser', add);

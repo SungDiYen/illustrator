@@ -1,9 +1,20 @@
 var express = require('express');
 var router  = express.Router();
 
-/* GET home page. */
+var projectDB = require('../models/model_project.js')
+
+// GET home page. 
 router.get('/', function(req, res) {
-  res.render('index', { title: 'SungDiYen 宋狄諺' });
+	projectDB.find(function(err, project_data){
+		if(err){
+			return console.log(err);
+		}else{
+			res.render('index', {
+				title: 'SungDiYen 宋狄諺',
+				project: project_data
+			})
+		}
+	})
 });
 
 /*Post from page */
