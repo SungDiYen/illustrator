@@ -22,7 +22,7 @@ var s3 = new aws.S3();
 
 var multer  = require('multer'); //multi-part/form
 var upload_img = multer({
-                    dest:'./public/images',
+                    dest:'./public/images/projects',
                     /*
                     rename: function(fieldname, filename){
                         return fieldname+'TEST';
@@ -41,7 +41,7 @@ var upload_img = multer({
 
 
 
-//插入db
+//插入db &連接
 require( './db' );
 var app = express();
 
