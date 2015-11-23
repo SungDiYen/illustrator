@@ -1,4 +1,5 @@
 field_label();
+
 function field_label(){
 	$('.field input').blur(function() {
 	    if( $(this).val() !== '' ){

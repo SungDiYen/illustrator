@@ -9,6 +9,7 @@ var projectSchema = new Schema({
     project_content: String,
     project_date:    {type: Date, default: Date.now},
     project_status:  Boolean,
+    content_images:  '',//Array?
 })
 var projectCollection = mongoose.model('project', projectSchema);
 

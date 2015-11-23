@@ -247,6 +247,12 @@ main {
 				left: 0;
 				top: 0;
 				cursor: text;
+				&.fixed {
+					position: absolute;
+					top: rem(-16);
+					font-size: rem(12);
+					color: $grey--dark;
+				}
 			}
 			&:focus {
 				+label {
@@ -284,6 +290,7 @@ main {
 		}
 	}
 }
+
 
 
 // sematic's js 取出放置body 下層

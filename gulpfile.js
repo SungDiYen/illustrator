@@ -29,15 +29,15 @@ gulp.task('uglify', function(){
 		path.basename += ".min";
 		path.extname = ".js";
 	}))
-	.pipe(gulp.dest('public/js/min'));
+	.pipe(gulp.dest('public/js/min/'));
 })
 
 gulp.task('watch',function(){
     gulp.watch('public/sass/*.scss',['compass']);
-    gulp.watch('public/js/*.js',['uglify'])
+    //gulp.watch('public/js/*.js',['uglify'])
 });
 
-gulp.task('default',['compass', 'watch'], function(){
+gulp.task('default',['compass', 'watch', 'uglify'], function(){
 	//listen for changes
 	livereload.listen();
 	//configure nodemon
