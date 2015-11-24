@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src= /images/{{cover_img}} alt="">
+                                <img src= /images/projects/{{cover_img}} alt="">
                             </div>
                         </div>
                     </div>

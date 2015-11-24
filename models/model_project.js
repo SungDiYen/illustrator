@@ -1,15 +1,16 @@
 var mongoose  = require('mongoose');
-var Schema = mongoose.Schema;  
+var Schema = mongoose.Schema;  //骨架
 
 /////// model 與 
-var projectSchema = new Schema({
-    cover_img :      String, //url path
+var projectSchema = new Schema({	//模型
     project_title:   String,
     project_catalog: String,
     project_content: String,
     project_date:    {type: Date, default: Date.now},
     project_status:  Boolean,
-    content_images:  '',//Array?
+    cover :          {type: String, default: 'default',unique: true}, //url path
+    gallery:  		 [String],//Array?
+    //default 的出現，會在 router 沒有呼叫時傳入
 })
 var projectCollection = mongoose.model('project', projectSchema);
 

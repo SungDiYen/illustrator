@@ -36,7 +36,10 @@ var upload_img = multer({
                     inMemory: true //This is important. It's what populates the buffer.
                     */
                 });
-
+var multi_field = multer({ dest: './public/images/projects' }).fields([
+                    { name: 'cover', maxCount: 1 }, //符合 input,name欄位名稱
+                    { name: 'gallery', maxCount: 8 }
+                    ]);
 
 
 
@@ -63,21 +66,22 @@ app.use(express.static('public'));
 
 app.use('/', routes);
 app.post('/', routes);
-
-app.get('/users', users);
-
 app.get('/upload', upload.uploadView);
 //app.post('/upload', upload_img.single('test_photo'), upload.images);
-app.post('/upload', upload_img.array('test_photo', 12), upload.projects);
+//app.post('/upload', upload_img.array('test_photo', 12), upload.projects);
+app.post('/upload', multi_field, upload.projects);
 //dest: 檔案儲存路徑
-    //array('photos', 12)上傳檔案 & formdata
+    //array('photos', 12)上傳檔案 & formdata 單一檔案,最多12個 必须与表单上传的name属性保持一致。
     //single: input, name欄位
     //multer會自動幫你重新命名
-
-
+app.get('/upload/del/:id', upload.pro_delete); //刪除 byId
+app.post('/upload/edit/:id', upload.pro_update);//更新 byId
+app.get('/upload/edit/:id', function(req, res){
+    res.redirect('/upload');
+})
+//app.get('/users', users);
 app.get('/adduser', add);
 //app.post('/adduser',add);// 必須加 post 才會作用
-
 app.post('/del', del);
 // Post 流程 Step-1
 // 來自'/adduser'的 post 請求，使用 router/add.js 的 router.post

@@ -49,7 +49,12 @@
 
         			<div class="field">
         				上傳圖片
-        				<input type="file"  id="input_image" name='test_photo'>
+        				<input type="file"  id="input_image" name='cover'>
+        			</div>
+        			<div class="field">
+        				上傳內容
+        				<input type="file"  id="" name='gallery'>
+        				<input type="file"  id="" name='gallery'>
         			</div>
 					<input type="submit" id="upload--project">
 		            <!--<div class="ui two attached buttons">
@@ -74,10 +79,24 @@
 		        			<!--<b class="id"> {{id}} </b>-->
 		        			<p>{{project_title}}</p>
 		        			<p>{{project_catalog}}</p>
-		        			<b> {{cover_img}} </b>
+		        			<b> {{cover}} </b>
+		        			<b> {{project_content}} </b>
+		        			{{#gallery}}
+		        			<div style="color: red"> {{.}} </div>
+		        			{{/gallery}}
 		        			<!--<img src="/images/pro_test.jpg" alt="">-->
-		        			<img src= /images/{{cover_img}} alt="" style="width: 100%">
-		        			<button type="" class="del">刪除</button>
+		        			<img src= /images/projects/{{cover}} alt="" style="width: 100%">
+		        			{{#gallery}}
+		        			<img src= /images/projects/{{.}} alt="" style="width: 100%">
+		        			{{/gallery}}
+		        			
+		        			<a href= /upload/del/{{id}} >刪除</a>
+		        			
+		        			<section>
+		        				<input type="text" name="new_w" class="new_input">
+		        				<!--<div class="js-update">ewfewf</div>-->
+		        				<a href= /upload/edit/{{id}} class="js-update">更新</a>
+		        			</section>
 		        		</div>
 		        	{{/p_con}}
 		        </div>
@@ -152,6 +171,25 @@
 		})
 	}
 	
+
+
+
+	
+	$('.js-update').click(function(event) {
+		var _url = $(this).attr('href');
+		var _obj = {};
+		_obj.newInput = $(this).siblings('.new_input').val();
+		
+		console.log(_obj);
+		$.ajax({
+			url: _url,
+            data: _obj,
+            type:"POST",
+            dataType:'json',
+		})
+		//return false;  // cancel link default action
+	});
+
 </script>
 <script>
 	$('.del').click(function(event) {
