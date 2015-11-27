@@ -17,17 +17,9 @@ router.get('/', function(req, res) {
 	})
 });
 
+var clientCollection = require('../models/messages.js');
 /*Post from page */
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
 
-var clientSchema = new Schema({
-	client_name: String,
-	client_email: String,
-	client_message: String
-});
-
-var clientCollection = mongoose.model('client', clientSchema);
 
 router.post('/', function(req, res) {
 	var clientData = new clientCollection({

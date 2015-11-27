@@ -1,7 +1,7 @@
 field_label();
 
 function field_label(){
-	$('.field input').blur(function() {
+	$('.field input[type="text"]').blur(function() {
 	    if( $(this).val() !== '' ){
 	        $(this).siblings('label').addClass('fixed');
 	    }else {

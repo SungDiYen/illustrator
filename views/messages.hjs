@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+        <meta name="description" content="Sung,Di-Yen｜宋狄諺，實驗性網站">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="robots" content />
+        <meta name="p:domain_verify" content="75402b7de4ac7a9d64cd8e9506bc8311"/>
+		<title>{{ title }}</title>
+		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
+		<link rel='stylesheet' href='/css/layout.css' />
+        <script src="/js/min/ga.min.js"></script>
+  </head>
+  <body>
+    <h1>客戶資料</h1>
+
+    {{#client}}
+    <div class="ui segment">
+    	<div>客戶名稱
+    		<p> {{client_name}} </p>
+    	</div>
+    	<div>信箱
+    		<p> {{client_email}} </p>
+    	</div>
+    	<div>訊息
+    		<p> {{client_message}} </p>
+    	</div>
+    	<div>
+    		發信時間
+    		<p> {{date}} </p>
+    	</div>
+    	<a class="ui button" href= /messages/del/{{id}} >刪除</a>
+    </div>
+    {{/client}}
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
+	<script src="/bower_components/semantic-ui/dist/semantic.min.js" ></script>
+
+</html>

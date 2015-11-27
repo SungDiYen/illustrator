@@ -63,7 +63,7 @@
                                                     {{project_title}}
                                                 </h4>
                                                 <ul class="details">
-                                                    <li class="item type">類型：{{project_catalog}}</li>
+                                                    <li class="item type">{{project_catalog}}</li>
                                                     <!--<li class="item client">客戶：＠＃＄％</li>
                                                     <li class="item time">時間：2015.05</li>-->
                                                 </ul>
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src= /images/projects/{{cover_img}} alt="">
+                                <img src= /images/projects/{{cover}} alt="">
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="ui grid container">
                     <div class="column row">
                         <div class="six wide column">
-                            pic
+                            ////
                         </div>
                         <div class="ten wide column">
                             <section class="segment">
@@ -151,7 +151,7 @@
                                 <h3 class="title">
                                     <span class="ch">快速聯繫</span><span class="en">Contact</span>
                                 </h3>
-                                <div class="form">
+                                <div class="ui form client">
                                     <div class="field">
                                         <input id="client__name" type="text" autocomplete required maxlength="40" name="name">
                                         <label for="client__name">姓名  Name*</label>
@@ -159,9 +159,9 @@
                                     <div class="field">
                                         <input id="client__email" type="text" autocomplete required maxlength="40" name="email">
                                         <label for="client__email">信箱  Email*</label>
-                                        <div class="ui left pointing red basic label field__hint">
+                                        <!--<div class="ui left pointing prompt red label field__hint  animating transition scale ">
                                             That name is taken!
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <div class="field">
                                         <textarea id="client__message" name="msg"></textarea>
@@ -174,13 +174,14 @@
                                                 <i class="remove icon"></i>
                                             </div>
                                         </div>
-                                        <div class="ui vertical animated button send" id="send--message">
+                                        <div class="ui vertical animated button send submit" id="send--message">
                                             <div class="visible content">Send</div>
                                             <div class="hidden content">
                                                 <i class="send Outline icon"></i>
                                             </div>
                                         </div>
                                     </div>
+                                    <!--<div class="ui error message"></div>-->
                                 </div>
                             </section>
                         </div>
@@ -201,13 +202,9 @@
                         {{project_content}}
                     </section>
                     <div class="image content">
-                        {{content_images}}
-                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
-                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
-                        <img class="ui small image" src="https://dl.dropboxusercontent.com/u/38967251/flim_clip.png">
-                        <div class="description">
-                        description
-                        </div>
+                        {{#gallery}}
+                        <img src= /images/projects/{{.}} alt="">
+                        {{/gallery}}
                     </div>
                 </div>
             </section>
@@ -248,22 +245,49 @@
     </script>
 
 
+
     <script>
-        $('#send--message').click(function(){
-            var clients = {}; //json 物件
-            clients.name = $('#client__name').val(),
-            clients.email = $('#client__email').val(),
-            clients.msg = $('#client__message').val();
-
-            $.post('/',clients ,function(data){
-                //回報前台 or somthing else
-                post_success();
-                //傳了 json 給⋯⋯url('/') 
-            });
-        });
-
-        function post_success(){
-            console.log(clients);
-        }
+        $('.form.client').form({
+            on: 'submit', //觸發條件 submit / blur / change
+            on: 'blur',
+            inline: true, //prompt 出現方式
+            fields:{
+                name: {
+                    identifier: 'name',
+                    rules: [{
+                        type: 'empty',
+                        prompt: '請問要怎麼稱呼你⋯⋯？'
+                    }]
+                },
+                email: {
+                    identifier: 'email',
+                    rules: [{
+                        type: 'email',
+                        prompt: '要輸入正確的信箱格式'
+                    }]
+                },
+                message: {
+                    identifier: 'msg',
+                    rules: [{
+                        type: 'empty',
+                        prompt: '別忘記你的留言，也是很寶貴的'
+                    }]
+                }
+            },
+            onSuccess(event, fields){
+                var clients = {}; //json 物件
+                clients.name = $('#client__name').val(),
+                clients.email = $('#client__email').val(),
+                clients.msg = $('#client__message').val();
+                $.post('/',clients ,function(data){
+                    //回報前台 or somthing else
+                    //傳了 json 給⋯⋯url('/') 
+                });
+                
+            },
+            onFailure(event, fields){
+                //
+            }
+        })
     </script>
 </html>

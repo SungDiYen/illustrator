@@ -9,10 +9,11 @@ var fs = require('fs'); //file system
 //var http = require('http');
 //var httpProxy = require('http-proxy');
 var routes = require('./routes/index');
-var users  = require('./routes/users');
-var add    = require('./routes/add');
+//var users  = require('./routes/users');
+//var add    = require('./routes/add');
 var upload = require('./routes/upload');
-var del = require('./routes/del');
+var client_message = require('./routes/message');
+
 //AWS S3
 /*
 var aws = require('aws-sdk');
@@ -76,13 +77,16 @@ app.post('/upload', multi_field, upload.projects);
     //multer會自動幫你重新命名
 app.get('/upload/del/:id', upload.pro_delete); //刪除 byId
 app.post('/upload/edit/:id', upload.pro_update);//更新 byId
-app.get('/upload/edit/:id', function(req, res){
+app.get('/upload/edit/:id', function(req, res){ //重新導向
     res.redirect('/upload');
 })
+
+app.get('/messages', client_message.show_lists);
+app.get('/messages/del/:id', client_message.list_delete);
 //app.get('/users', users);
-app.get('/adduser', add);
+//app.get('/adduser', add);
 //app.post('/adduser',add);// 必須加 post 才會作用
-app.post('/del', del);
+
 // Post 流程 Step-1
 // 來自'/adduser'的 post 請求，使用 router/add.js 的 router.post
 

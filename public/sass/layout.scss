@@ -218,7 +218,7 @@ main {
 		padding: 60px 0;
 	}
 }
-.form {
+.ui.form {
 	.field {
 		position: relative;
 		margin-top: 30px;
@@ -309,6 +309,16 @@ main {
 		.cata {
 			color: $grey--dark;
 			font-size: rem(16);
+		}
+	}
+	.content {
+		&.image {
+			img {
+				width: 100%;
+				height: auto;
+				display: block;
+				margin: 1rem 0;
+			}
 		}
 	}
 }
