@@ -5,6 +5,7 @@ var nav_height = $('.js-nav').height();
 nav_fixed(nav_height);
 scrollSpy();
 
+
     //調整 Landing View
     function landing_view(){
         var screen_height = $(window).height();
@@ -59,10 +60,16 @@ scrollSpy();
         var spy_node_num = spy_node.length -1;
         var spy_segment_id = [];
         var spy_swgmant_dist = [];
-        for (i = spy_node_num; i >= 0; i--) {
-           spy_segment_id[i] = spy_node.eq(i).attr('href');
-           spy_swgmant_dist[i] = $(spy_segment_id[i]).offset().top;
-        };
+        
+        function get_id_and_dist(for_length){
+            for (i = 0; i <= for_length; i++) {
+                spy_segment_id.push( spy_node.eq(i).attr('href') );
+                spy_swgmant_dist.push( $(spy_segment_id[i]).offset().top );
+            }
+        }
+        get_id_and_dist(spy_node_num)
+        
+
         //console.log(spy_segment_id, spy_swgmant_dist);
         $(spy_node).click(function(event) {
             var spy_seg = this.hash; // .attr('href')

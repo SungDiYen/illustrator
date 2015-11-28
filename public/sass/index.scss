@@ -3,12 +3,35 @@
 		'color.scss',
 		'function.scss';
 
+.hide_desktop_over {
+	@include device(desktop_over) {
+		display: none;
+	}
+}
 
-
+%segment_title {
+	font-size: rem(21);
+	color: $gn;
+	margin-bottom: 25px;
+	font-weight: 700;
+	.en, .ch {
+		display: block;
+	}
+	.ch {
+		margin-top: 5px;
+		font-size: rem(24);
+		border-bottom: 1px solid $gn;
+		padding-bottom: 15px;
+	}
+}
+//////////
 
 .landing__intro {
 	position: relative;
 	@include display-flex;
+	@include device(mobile) {
+		@include flex-wrap(wrap);
+	}
 	.article {
 		color: $gn;
 		@include display-flex(inline-flex);
@@ -54,9 +77,9 @@
 				$size: 186px;
 				width:  $size;
 				height: $size;
-				position: relative;
+				position: absolute;
 				left: 270px;
-				top: -200px;
+				top: 378px;
 			}
 			.intro {
 				line-height: 1.375;
@@ -65,6 +88,57 @@
 				position: absolute;
 				right: 0;
 				bottom: 54px;
+			}
+			@include device(tablet) {
+				.name {
+					left: -25px;
+					top: 180px + 40px;
+					.single {
+						font-size: rem(96);
+					}
+				}
+				.jobs {
+					background: transparent;
+					color: $wt;
+					@include align-items(flex-start);
+					height: auto;
+					top: 343px;
+					left: 150px;
+				}
+				.intro {
+					left: 35px;
+				}
+			}
+			@include device(mobile) {
+				@include flex(1 1 100%);
+				.name {
+					@include flex-direction(row);
+					left: 0;
+					right: 0;
+					margin: auto;
+					.single {
+						font-size: rem(64);
+						+.single {
+							margin-top: 0;
+						}
+						&:first-of-type {
+							margin-right: 10px;
+						}
+					}
+				}
+				.jobs {
+					@include border-radius(0);
+					@include flex-direction(row);
+					width: auto;
+					height: auto;
+					left: 0;
+					right: 0;
+					margin: auto 20%;
+					@include justify-content(center);
+				}
+				.intro {
+					display: none;
+				}
 			}
 		}
 		&.right {
@@ -116,6 +190,52 @@
 				right: 190px;
 				bottom: 195px;
 			}
+			@include device(tablet) {
+				.name {
+					margin: 0;
+					top: 110px;
+					right: -30px;
+					.single {
+						font-size: rem(84);
+						@include display-flex;
+					}
+					&:after {
+						width: 145px;
+					}
+				}
+				.jobs {
+					width: 140px;
+					@include border-radius(0);
+					left: initial;
+					right: 0;
+					top: 305px;
+					@include flex-direction(column);
+					@include justify-content(flex-end);
+					@include align-items(flex-start);
+					padding: 0;
+					background: transparent;
+					&:after {
+						content: "";
+						display: block;
+						width: 190px;
+						height: 100px;
+						position: absolute;
+						z-index: -1;
+						bottom: -10px;
+						right: 0;
+						background: $gn--light;
+					}
+				}
+				.intro {
+					left: initial;
+					right: 0;
+					bottom: 285px;
+				}
+			}
+			@include device(mobile) {
+				display: none;
+				@include flex(0 0);
+			}
 		}
 	}
 	.slide--down.center.btn {
@@ -123,10 +243,25 @@
 		@include align-items(center);
 		cursor: pointer;
 		&:hover {}
+		@include device(mobile) {
+			//@include rotate(90deg);
+			margin: auto;
+			svg {
+				image#Bitmap {
+					//@include rotate(-90deg);
+				}
+				text {
+					//@include rotate(-90deg);
+				}
+				path#Tri-small {
+					opacity: 0;
+				}
+			}
+		}
 	}
 }
 
-.works {
+	.works {
 		padding: 60px*2 0;
 		position: relative;
 		top: 0;
@@ -170,6 +305,9 @@
 	}
 	.intro {
 		padding-top: 60px;
+		.title {
+			@extend %segment_title;
+		}
 		.segment {
 			color: $gn;
 			font-size: rem(16);
@@ -191,19 +329,7 @@
 		}
 		.service, .contact, .planning {
 			.title {
-				font-size: rem(21);
-				color: $gn;
-				margin-bottom: 25px;
-				font-weight: 700;
-				.en, .ch {
-					display: block;
-				}
-				.ch {
-					margin-top: 5px;
-					font-size: rem(24);
-					border-bottom: 1px solid $gn;
-					padding-bottom: 15px;
-				}
+				@extend %segment_title;
 			}
 			.list {
 				li {
@@ -241,6 +367,9 @@
 						}
 					}
 				}
+			}
+			@include device(mobile) {
+				margin-top: 60px;
 			}
 		}
 		.map {

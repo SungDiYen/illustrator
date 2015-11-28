@@ -2,3 +2,55 @@ $browser-context: 16; // Default
 @function rem($pixels, $context: $browser-context) {
 	@return #{$pixels/$context}rem;
 }
+
+/*----Grid--------------
+	col-xs-
+			--750px--
+	col-sm-
+			--970px--
+	col-md-
+			--1170px--
+	col-lg-
+-----------------------*/
+
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+@mixin device($screen){
+	@if $screen == 'mobile' {
+		@media (max-width: $sm - 1px ){
+			@content;
+		}
+	}
+	@else if $screen == 'tablet' {
+		@media (min-width: $sm) and (max-width: $md - 1px){
+			@content;
+		}
+	}
+	@else if $screen == 'desktop' {
+		@media (min-width: $md) and (max-width: $lg - 1px){
+			@content;
+		}
+	}
+	@else if $screen == 'over' {
+		@media (min-width: $lg) {
+			@content;
+		}
+	}
+	/////
+	@else if $screen == 'mobile_tablet' {
+		@media (max-width: $md - 1px){
+			@content;
+		}
+	}
+	@else if $screen == 'mobile_tablet_desktop' {
+		@media (max-width: $lg - 1px){
+			@content;
+		}
+	}
+	@else if $screen == 'desktop_over' {
+		@media (min-width: $md){
+			@content;
+		}
+	}
+}

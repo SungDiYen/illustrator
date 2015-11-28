@@ -5,7 +5,8 @@ var gulp       = require('gulp'),
 	rename     = require('gulp-rename'),
 	compass    = require('gulp-compass'),
 	minifycss  = require('gulp-minify-css'),
-	uglify     = require('gulp-uglify');
+	uglify     = require('gulp-uglify'),
+	util	   = require('gulp-util'); //報錯用
 
 
 //Task
@@ -24,7 +25,7 @@ gulp.task('compass', function() {
 
 gulp.task('uglify', function(){
 	return gulp.src('public/js/*.js')
-	.pipe(uglify())
+	.pipe(uglify().on('error', util.log))
 	.pipe(rename(function(path){
 		path.basename += ".min";
 		path.extname = ".js";
