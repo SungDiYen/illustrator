@@ -9,6 +9,7 @@
 		<title>{{ title }}</title>
 		<link rel='stylesheet' href='/bower_components/semantic-ui/dist/semantic.min.css' />
 		<link rel='stylesheet' href='/css/layout.css' />
+        <link rel='stylesheet' href='/css/index.css' />
         <script src="/js/min/ga.min.js"></script>
 	</head>
 	<body>
@@ -29,24 +30,62 @@
                     <source src="https://dl.dropboxusercontent.com/u/38967251/IMG_0901.m4v">
                 </video>
                 <section class="landing__intro">
-                    <h1 class="title">Sung,Di-Yen</h1>
-                    <p class="para">Graphic, UI, Front-End Web Developer</p>
-                    <button type="" id="js-slide--down" class="circular ui icon button slide--down">
-                       <svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                    <article class="article left">
+                        <div class="title name">
+                            <span class="single">Sung</span>
+                            <span class="single">Di</span>
+                            <span class="single">Yen</span>
+                        </div>
+                        <section class="subtitle jobs">
+                            <span class="single">Graphic,</span>
+                            <span class="single">UI Designer,</span>
+                            <span class="single">Front-End Developer</span>
+                        </section>
+                        <section class="para intro">
+                            Graphic/Web designer based in Taipei, Taiwan. Currently, focusing on identity design, interfaces, web developing.
+                        </section>
+                    </article>
+                    <div class="center btn slide--down" id="js-slide--down">
+                        <svg width="163px" height="356px" viewBox="0 0 163 356" version="1.1" 
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                            xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                             <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
-                            <title>Oval 31 Copy + Triangle 1</title>
+                            <title>scroll_down</title>
                             <desc>Created with Sketch.</desc>
                             <defs></defs>
                             <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                                <g id="Export-SVG-Testing" sketch:type="MSArtboardGroup" transform="translate(-59.000000, -64.000000)" stroke="#DFAA00" stroke-width="2">
-                                    <g id="Oval-31-Copy-+-Triangle-1" sketch:type="MSLayerGroup" transform="translate(60.000000, 65.000000)">
-                                        <path d="M25,50 C38.8071187,50 50,38.8071187 50,25 C50,11.1928813 38.8071187,0 25,0 C11.1928813,0 0,11.1928813 0,25 C0,38.8071187 11.1928813,50 25,50 Z" id="ovel" sketch:type="MSShapeGroup"></path>
-                                        <path d="M13,16 L37,16 L25,40 L13,16 Z" id="tri" sketch:type="MSShapeGroup"></path>
+                                <g id="scroll_down" sketch:type="MSArtboardGroup">
+                                    <g id="Group-Copy" sketch:type="MSLayerGroup" transform="translate(42.000000, 8.000000)">
+                                        <image id="Bitmap" sketch:type="MSBitmapLayer" x="16" y="34" width="49" height="49" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAYAAABznEEcAAAAAXNSR0IArs4c6QAAAgZJREFUaAXV2j1KA0EYxvF3s4gHSG2niIWNlWDpBWxSSEBLKw8QsBQ8h0IgmEIbvYEnUAJ+YekhJIl5FkYMye7Ox/POTrbIhhQz758fpJnJPvpykq/JtazoM/6R0/w7l5fDHTnOMmmvWsdkIu+9Ozkr5obG161MPwfy1ulInnIM5sOcmBdzY9YWPnr30kdVqyVbV0fSxW+pPpgPcxYKs7kxZxExHMp4OpZL/JDlcpGqBubCfJgT82JufC8i8GUVNJYpzEWkrlGmMBeRukaZwkJEqhpVCgsRqWpUKSyNSE2jTmFpRGoadQqlEalo2CiURqSiYaNQGdG0hq1CZUTTGrYKtRFNabgo1EY0peGiYBURW8NVwSoitoargnVELA0fBeuIWBo+Ck4R2hq+Ck4R2hq+Cs4RWhohCs4RWhohCl4RbI1QBa8ItkaogncES4Oh4B3B0mAoBEWEarAUgiJCNVgKwRG+GkyF4AhfDaYCJcJVg61AiXDVYCvQImw1NBRoEbYaGgrUiDoNLQVqRJ2GlgI9okxDU4EeUaahqYA9M3ywH3NLAce0r0+yu30gzzi2xen/Zldu2PupHLybWwoYvL0he7P3vjn9H41kyo5QkcCQRsMMrKWA9f/Osc1mrLc5F8d6/0//WetHW8fcGTF3MKJtzNwIf62zyyQPeDPXjb7W47msa2/6C5gkH+T9SQnmAAAAAElFTkSuQmCC"></image>
+                                        <path d="M28,291 L53,291 L40.5,316 L28,291 Z" id="Triangle-1-Copy" stroke="#DFAA00" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                                        <image id="Bitmap" sketch:type="MSBitmapLayer" x="0" y="0" width="80" height="341" xlink:href="data:image/png;base64,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"></image>
+                                        <text id="Scroll" sketch:type="MSTextLayer" font-family="PingFang TC" font-size="20" font-weight="526" fill="#DFAA00">
+                                            <tspan x="13" y="142">Scroll</tspan>
+                                            <tspan x="13" y="170">down</tspan>
+                                        </text>
+                                        <text id="向下滑" sketch:type="MSTextLayer" font-family="PingFang TC" font-size="20" font-weight="526" fill="#DFAA00">
+                                            <tspan x="10" y="213">向下滑</tspan>
+                                        </text>
                                     </g>
                                 </g>
                             </g>
                         </svg>
-                    </button>
+                    </div>
+                    <article class="article right">
+                        <div class="title name">
+                            <span class="single">宋</span>
+                            <span class="single">狄</span>
+                            <span class="single">諺</span>
+                        </div>
+                        <section class="subtitle jobs">
+                            <span class="single">平面、</span>
+                            <span class="single">介面</span>
+                            <span class="single">網頁前端</span>
+                        </section>
+                        <section class="para intro">
+                            來自台灣的設計師，目前專注於識別設計、介面設計以及網頁前端開發。
+                        </section>
+                    </article>
                 </section>
 			</article>
             <article class="works" id="js-works">
@@ -86,7 +125,7 @@
                     {{/project}}
                 </div>
             </article>
-            <article class="intro" id="js-about">
+            <!--<article class="intro" id="js-about">
                 <div class="ui grid container">
                     <div class="column row">
                         <div class="six wide column">
@@ -121,35 +160,66 @@
                         </div>
                     </div>
                 </div>
-            </article>
+            </article>-->
             <article class="intro" id="js-contact">
                 <div class="ui grid container">
                     <div class="column row">
-                        <div class="six wide column">
-                            <section class="service">
-                                <h3 class="title">
-                                    <span class="ch">服務項目</span><span class="en">Services</span>
-                                </h3>
-                                <ul class="list">
-                                    <li>
-                                        <span class="ch">平面設計</span><span class="en">Graphic</span>
-                                    </li>
-                                    <li>
-                                        <span class="ch">品牌／識別設計</span><span class="en">Identity</span>
-                                    </li>
-                                    <li>
-                                        <span class="ch">介面設計</span><span class="en">User Interface</span>
-                                    </li>
-                                    <li>
-                                        <span class="ch">網站前端開發</span><span class="en">Front-End Web Developer</span>
-                                    </li>
-                                </ul>
-                            </section>
+                        <div class="ten wide column">
+                            <div class="ui grid">
+                                <div class="eight wide column">
+                                    <section class="service">
+                                        <h3 class="title">
+                                            <span class="en">Services</span>
+                                            <span class="ch">服務項目</span>
+                                        </h3>
+                                        <ul class="list">
+                                            <li>
+                                                <span class="ch">平面設計</span>
+                                                <span class="en">Graphic</span>
+                                            </li>
+                                            <li>
+                                                <span class="ch">品牌／識別設計</span>
+                                                <span class="en">Identity</span>
+                                            </li>
+                                            <li>
+                                                <span class="ch">介面設計</span>
+                                                <span class="en">User Interface</span>
+                                            </li>
+                                            <li>
+                                                <span class="ch">網站前端開發</span>
+                                                <span class="en">Web Front-End</span>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="eight wide column">
+                                    <section class="contact">
+                                        <h3 class="title">
+                                            <span class="en">Contact</span>
+                                            <span class="ch">聯絡方式</span>
+                                        </h3>
+                                        <ul class="list">
+                                            <li>
+                                                +886955257009
+                                            </li>
+                                            <li>
+                                                sungdiyen@gmail.com
+                                            </li>
+                                            <li>23441 新北市永和區博愛街16號4樓</li>
+                                            <li>4F., No.16, Bo’ai St., Yonghe Dist., New Taipei City 234, Taiwan</li>
+                                        </ul>
+                                    </section>
+                                </div>
+                                <div class="sixteen wide column map" id="map">
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="eight wide column">
-                            <section class="contact">
+                        <div class="five wide column">
+                            <section class="planning">
                                 <h3 class="title">
-                                    <span class="ch">快速聯繫</span><span class="en">Contact</span>
+                                    <span class="en">Planning</span>
+                                    <span class="ch">企劃、合作</span>
                                 </h3>
                                 <div class="ui form client">
                                     <div class="field">
@@ -159,9 +229,6 @@
                                     <div class="field">
                                         <input id="client__email" type="text" autocomplete required maxlength="40" name="email">
                                         <label for="client__email">信箱  Email*</label>
-                                        <!--<div class="ui left pointing prompt red label field__hint  animating transition scale ">
-                                            That name is taken!
-                                        </div>-->
                                     </div>
                                     <div class="field">
                                         <textarea id="client__message" name="msg"></textarea>
@@ -249,7 +316,7 @@
     <script>
         $('.form.client').form({
             on: 'submit', //觸發條件 submit / blur / change
-            on: 'blur',
+            //on: 'blur',
             inline: true, //prompt 出現方式
             fields:{
                 name: {

@@ -1,0 +1,249 @@
+@import 'compass',
+		'compass/reset',
+		'color.scss',
+		'function.scss';
+
+
+
+
+.landing__intro {
+	position: relative;
+	@include display-flex;
+	.article {
+		color: $gn;
+		@include display-flex(inline-flex);
+		@include flex(1 1 40%);
+		@include flex-direction(column);
+		.jobs {
+			@include border-radius(50%);
+			background: $gn--light;
+			@include display-flex;
+			//@include align-items(center);
+			@include justify-content(flex-start);
+			@include flex-direction(column);
+			.single {
+				font-size: rem(18);
+				line-height: 2;
+				text-align: center;
+				font-weight: 700;
+			}
+		}
+		.intro {
+			background: $gn--light;
+			font-size: rem(16);
+		}
+		&.left {
+			.name {
+				position: relative;
+				left: -50px;
+				top: 180px;
+				@include display-flex;
+				@include flex-direction(column);
+				.single {
+					font-size: rem(174);
+					@include display-flex;
+					font-weight: 900;
+					background: $gn--light;
+					@include align-self(flex-start);
+					+.single {
+						margin-top: 30px;
+					}
+				}
+			}
+			.jobs {
+				$size: 186px;
+				width:  $size;
+				height: $size;
+				position: relative;
+				left: 270px;
+				top: -200px;
+			}
+			.intro {
+				line-height: 1.375;
+				padding: 16px 144px 16px 28px;
+				max-width: 450px;
+				position: absolute;
+				right: 0;
+				bottom: 54px;
+			}
+		}
+		&.right {
+			.name {
+				position: absolute;
+				top: 180px;
+				right: 0;
+				margin-right: 30px;
+				.single {
+					font-size: rem(144);
+					font-weight: 900;
+					&:first-of-type {
+						@include display-flex;
+					}
+				}
+				&:after {
+					content: '';
+					display: block;
+					width: 270px;
+					height: 275px;
+					position: absolute;
+					z-index: -1;
+					top:  50px;
+					left: -40px;
+					background: $gn--light;
+				}
+			}
+			.jobs {
+				$size: 136px;
+				height: $size;
+				width: $size;
+				@include justify-content(center);
+				@include align-items(flex-end);
+				@include flex-direction(row);
+				@include flex-wrap(wrap);
+				padding: 60px 0 20px;
+				position: absolute;
+				bottom: 90px;
+				left: 390px;
+				.single {
+					line-height: 1.375;
+				}
+			}
+			.intro {
+				line-height: 1.375;
+				padding: 20px 0 10px 80px;
+				max-width: 310px;
+				position: absolute;
+				right: 190px;
+				bottom: 195px;
+			}
+		}
+	}
+	.slide--down.center.btn {
+		@include display-flex;
+		@include align-items(center);
+		cursor: pointer;
+		&:hover {}
+	}
+}
+
+.works {
+		padding: 60px*2 0;
+		position: relative;
+		top: 0;
+		>.ui.grid {
+			margin: 0;
+		}
+		.card {
+			.dimmer {
+				.segment {
+					color: $gn;
+					margin: 30px;
+					text-align: left;
+					>.title {
+						margin-bottom: 10px;
+						border-bottom: 1px solid $grey--light;
+						padding-bottom: 10px;
+						font-weight: 700;
+						font-size: rem(18);
+					}
+					>.details {
+						.item {
+							line-height: 1.6;
+						}
+					}
+					.button {
+						@include display-flex;
+						@include align-items(center);
+						@include justify-content(center);
+						margin: 20px 0 0;
+						border: 2px solid $gn;
+						color: $gn;
+						background: transparent;
+						&:hover {
+							background: $gn;
+							color: $wt;
+						}
+					}
+				}
+			}
+		}
+	}
+	.intro {
+		padding-top: 60px;
+		.segment {
+			color: $gn;
+			font-size: rem(16);
+			line-height: 1.6;
+			margin-bottom: 60px;
+			.name, .job {
+				font-size: rem(18);
+				font-weight: 700;
+				.ch {
+					margin-right: 20px;
+				}
+			}
+			.para {
+				margin-bottom: 10px;
+			}
+			&.contact--info {
+				margin-bottom: 0;
+			}
+		}
+		.service, .contact, .planning {
+			.title {
+				font-size: rem(21);
+				color: $gn;
+				margin-bottom: 25px;
+				font-weight: 700;
+				.en, .ch {
+					display: block;
+				}
+				.ch {
+					margin-top: 5px;
+					font-size: rem(24);
+					border-bottom: 1px solid $gn;
+					padding-bottom: 15px;
+				}
+			}
+			.list {
+				li {
+					color: $gn;
+					font-size: rem(14);
+					line-height: 1.375;
+					margin-bottom: 20px;
+					.ch {
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+		.planning {
+			.form {
+				.buttons {
+					margin-top: 30px;
+					@include border-radius(5px);
+					overflow: hidden;
+					.button {
+						font-size: rem(16);
+						&.clear {
+							@include flex(1);
+							background: $grey--light;
+							color: $grey--dark;
+						}
+						&.send {
+							@include flex(4);
+							color: $yl;
+							background: $wt;
+							background-image: linear-gradient(90deg, #8C034D 0%, #10500C 90%);
+							.icon {
+								
+							}
+						}
+					}
+				}
+			}
+		}
+		.map {
+			height: 240px;
+		}
+	}

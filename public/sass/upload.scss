@@ -17,3 +17,16 @@ h1 {
 	font-size: rem(28);
 	margin-bottom: 30px;
 }
+
+.galler-stock {
+	@include transition(all .28s ease-in-out);
+	opacity: 0;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	&.active {
+		opacity: 1;
+		height: auto;
+		width: auto;
+	}
+}

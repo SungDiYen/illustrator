@@ -1,13 +1,8 @@
 @import 'compass',
 		'compass/reset',
-		'color.scss';
+		'color.scss',
+		'function.scss';
 		
-
-$browser-context: 16; // Default
-@function rem($pixels, $context: $browser-context) {
-	@return #{$pixels/$context}rem;
-}
-
 body {
 	background: $body__bgc;
 }
@@ -20,7 +15,7 @@ main {
 		@include transition(all .5s ease-in);
 		.menu {
 			a {
-				color: $wt;
+				color: $gn;
 				font-size: rem(24);
 				margin: rem(40) rem(40) rem(24) 0;
 				padding-bottom: 5px;
@@ -40,6 +35,11 @@ main {
 			z-index: 9999;
 			top: 0;
 			background: $gn;
+			.menu {
+				a {
+					color: $wt;
+				}
+			}
 		}
 	}
 	.landing {
@@ -52,19 +52,12 @@ main {
 			color: $yl;
 			position: relative;
 			z-index: 1;
-			@include display-flex;
-			@include align-items(center);
-			@include justify-content(center);
-			@include flex-direction(column);
+			//@include display-flex;
+			//@include align-items(center);
+			//@include justify-content(center);
+			//@include flex-direction(column);
 			height: 100%;
-			.title {
-				font-size: rem(64);
-				padding-bottom: 20px;
-			}
-			.para {
-				font-size: rem(18);
-				padding-bottom: 40px;
-			}
+
 			.slide--down {
 				background: transparent;
 				padding: 0;
@@ -96,119 +89,6 @@ main {
 			&.height {
 				width: auto;
 				height: 100%;
-			}
-		}
-	}
-	.works {
-		padding: 60px*2 0;
-		position: relative;
-		top: 0;
-		>.ui.grid {
-			margin: 0;
-		}
-		.card {
-			.dimmer {
-				.segment {
-					color: $gn;
-					margin: 30px;
-					text-align: left;
-					>.title {
-						margin-bottom: 10px;
-						border-bottom: 1px solid $grey--light;
-						padding-bottom: 10px;
-						font-weight: 700;
-						font-size: rem(18);
-					}
-					>.details {
-						.item {
-							line-height: 1.6;
-						}
-					}
-					.button {
-						@include display-flex;
-						@include align-items(center);
-						@include justify-content(center);
-						margin: 20px 0 0;
-						border: 2px solid $gn;
-						color: $gn;
-						background: transparent;
-						&:hover {
-							background: $gn;
-							color: $wt;
-						}
-					}
-				}
-			}
-		}
-	}
-	.intro {
-		padding-top: 60px;
-		.segment {
-			color: $gn;
-			font-size: rem(16);
-			line-height: 1.6;
-			margin-bottom: 60px;
-			.name, .job {
-				font-size: rem(18);
-				font-weight: 700;
-				.ch {
-					margin-right: 20px;
-				}
-			}
-			.para {
-				margin-bottom: 10px;
-			}
-			&.contact--info {
-				margin-bottom: 0;
-			}
-		}
-		.service, .contact {
-			.title {
-				font-size: rem(18);
-				color: $yl;
-				margin-bottom: 40px;
-				font-weight: 700;
-				.ch {
-					margin-right: 10px;
-				}
-			}
-		}
-		.contact {
-			.form {
-				.buttons {
-					margin-top: 30px;
-					@include border-radius(5px);
-					overflow: hidden;
-					.button {
-						font-size: rem(16);
-						&.clear {
-							@include flex(1);
-							background: $grey--light;
-							color: $grey--dark;
-						}
-						&.send {
-							@include flex(7);
-							color: $yl;
-							background: $wt;
-							background-image: linear-gradient(90deg, #8C034D 0%, #10500C 90%);
-							.icon {
-								
-							}
-						}
-					}
-				}
-			}
-		}
-		.service {
-			.list {
-				li {
-					color: $gn;
-					font-size: rem(16);
-					margin-bottom: 20px;
-					.ch {
-						margin-right: 10px;
-					}
-				}
 			}
 		}
 	}

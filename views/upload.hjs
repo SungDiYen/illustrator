@@ -82,26 +82,29 @@
 		        	<br>
 		        	{{#p_con}}
 		        		<div style=" border: 1px solid red">
+		        			<div class="cover_image">
+		        				<img src= /images/projects/{{cover}} alt="" style="width: 100%">
+		        			</div>
 		        			<!--<b class="id"> {{id}} </b>-->
-		        			<p>{{project_title}}</p>
-		        			<p>{{project_catalog}}</p>
+		        			<p>名稱：{{project_title}}</p>
+		        			<p>分類：{{project_catalog}}</p>
 		        			<!--<b> {{cover}} </b>-->
-		        			<b> {{project_content}} </b>
-		        			{{#gallery}}
+		        			<b>內容：{{project_content}}</b>
+		        			<!--{{#gallery}}
 		        			<div style="color: red"> {{.}} </div>
-		        			{{/gallery}}
-		        			<!--<img src="/images/pro_test.jpg" alt="">-->
-		        			<img src= /images/projects/{{cover}} alt="" style="width: 100%">
-		        			{{#gallery}}
-		        			<img src= /images/projects/{{.}} alt="" style="width: 100%">
-		        			{{/gallery}}
-		        			
-		        			<a href= /upload/del/{{id}} >刪除</a>
-		        			
+		        			{{/gallery}}-->
+		        			<button class="js-control-gallery ui button">展開內容</button><!--要改成 click than load images-->
+		        			<section class="galler-stock">
+		        				<p>Gallery</p>
+		        				{{#gallery}}
+			        			<img src= /images/projects/{{.}} alt="" style="width: 100%">
+			        			{{/gallery}}
+		        			</section>		        			
+		        			<a href= /upload/del/{{id}} class="ui button red">刪除</a>
 		        			<section>
 		        				<input type="text" name="new_w" class="new_input">
 		        				<!--<div class="js-update">ewfewf</div>-->
-		        				<a href= /upload/edit/{{id}} class="js-update">更新</a>
+		        				<a href= /upload/edit/{{id}} class="js-update ui button blue">更新</a>
 		        			</section>
 		        		</div>
 		        	{{/p_con}}
@@ -192,6 +195,11 @@
 	$('.del').click(function(event) {
 		var ta = $(this).siblings('.id').text();
 		$.post('/del', ta);
+	});
+</script>
+<script>
+	$('.js-control-gallery').click(function(event) {
+		$(this).siblings('.galler-stock').toggleClass('active');
 	});
 </script>
 </html>
