@@ -14,8 +14,10 @@ router.get('/', function(req, res) {
 				project: project_data
 			})
 		}
-	})
+	}).sort("sequence")
 });
+//sort 資料呈現的排序 1為升序 -1為降序
+
 
 var clientCollection = require('../models/messages.js');
 /*Post from page */

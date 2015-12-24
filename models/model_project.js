@@ -10,6 +10,8 @@ var projectSchema = new Schema({	//模型
     project_status:  Boolean,
     cover :          {type: String, default: 'default',unique: true}, //url path
     gallery:  		 [String],//Array?
+    sequence:        {type: Number, default: 0, unique: true},
+
     //default 的出現，會在 router 沒有呼叫時傳入
 })
 var projectCollection = mongoose.model('project', projectSchema);

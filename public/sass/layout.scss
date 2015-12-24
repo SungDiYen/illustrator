@@ -97,8 +97,8 @@ main {
 		}
 	}
 	.footer--main {
-		border-top: 1px solid $grey--dark;
-		margin-top: 60px;
+		//border-top: 1px solid $grey--dark;
+		//margin-top: 60px;
 		padding: 60px 0;
 		.social_media {
 			@include display-flex(inline-flex);

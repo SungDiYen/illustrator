@@ -15,8 +15,10 @@ exports.uploadView = function(req, res) {
 				p_con: db_data,
 			});
 		}
-	})
+	}).sort("sequence")
 }
+// sort 依照 sequence 排序(添加"-" 為降序)
+
 
 /* POST data */
 //ARRAY
@@ -50,6 +52,7 @@ exports.projects = function(req, res, next) {
 		project_catalog : docs.catalog,
 		project_content : docs.content,
 		project_status  : docs.status,
+		sequence		: docs.sequence,
 		
 		//gallery: ['1','2'],
 		/*
@@ -58,8 +61,10 @@ exports.projects = function(req, res, next) {
 							req.files['gallery'][1].filename,
 							],*/
 	})
+	
 	check_cover();
 	check_gallery();
+
 	projectData.save(function(err, projectData){
 		if(err) {
 			res.send(err);
@@ -118,6 +123,7 @@ exports.pro_update = function(req, res, next) {
 		
 		//newData = new projectCollection; //存在的話 會建立新的 docement
 		newData.project_content = req.body.newInput,
+		newData.sequence 		= req.body.newSequence,
 
 		newData.save(function(err, newData){
 			if(err){

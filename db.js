@@ -19,12 +19,12 @@ db.once('open', function callback () {
 //////////////////// Test ////////////////////
 
 //建立 schema 確認各欄位名稱與資料格式
-var movieSchema = new Schema({
-    title: {type: String},
-    rating: String,
-    releaseYear: Number,
-    hasCreditCookie: Boolean
-});   
+//var movieSchema = new Schema({
+//    title: {type: String},
+//    rating: String,
+//    releaseYear: Number,
+//    hasCreditCookie: Boolean
+//});   
 
 
 //使用movieSchema作为结构编译一个'Movie'模型

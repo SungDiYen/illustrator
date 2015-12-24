@@ -20,6 +20,11 @@
 		                <label for="project__title" >作品名稱</label>
 		            </div>
 		            <div class="field">
+		            	<label for="project__sequence">作品順序</label>
+		            	<input id="project__sequence" type="number" maxlength="40" name="sequence">
+		                
+		            </div>
+		            <div class="field">
 		            	<label for="project__cata">分類 Catalog</label>
 		            	<select name="catalog" class="ui dropdown fluid" id="project__cata">
 		                	<option data-value="graphic" value="圖形設計">圖形設計</option>
@@ -88,11 +93,17 @@
 		        			<!--<b class="id"> {{id}} </b>-->
 		        			<p>名稱：{{project_title}}</p>
 		        			<p>分類：{{project_catalog}}</p>
+		        			<div class="data-sort">
+		        				排序：<p>{{sequence}}</p>
+		        			</div>
 		        			<!--<b> {{cover}} </b>-->
-		        			<b>內容：{{project_content}}</b>
+		        			<div class="data-content">
+		        				內容：<p>{{project_content}}</p>
+		        			</div>
 		        			<!--{{#gallery}}
 		        			<div style="color: red"> {{.}} </div>
 		        			{{/gallery}}-->
+		        			<br>
 		        			<button class="js-control-gallery ui button">展開內容</button><!--要改成 click than load images-->
 		        			<section class="galler-stock">
 		        				<p>Gallery</p>
@@ -100,11 +111,14 @@
 			        			<img src= /images/projects/{{.}} alt="" style="width: 100%">
 			        			{{/gallery}}
 		        			</section>		        			
-		        			<a href= /upload/del/{{id}} class="ui button red">刪除</a>
 		        			<section>
-		        				<input type="text" name="new_w" class="new_input">
+		        				說明<input type="text" name="new_w" class="new_input">
+		        				<br>
+		        				排序<input type="number" name="new_sequence" class="new_sequence">
 		        				<!--<div class="js-update">ewfewf</div>-->
-		        				<a href= /upload/edit/{{id}} class="js-update ui button blue">更新</a>
+		        				<br>
+		        				<a href= /upload/del/{{id}} class="ui button red">刪除</a>
+		        				<a href= /upload/edit/{{id}} class="js-update ui button blue">更新說明</a>
 		        			</section>
 		        		</div>
 		        	{{/p_con}}
@@ -128,22 +142,26 @@
 
 	$('#upload--project').click(function() {
 		var project = {};
-		function drop(){
+		function drop(){ //是否顯示檔案！？
 			if( $('#project__status').prop('checked') == true ){
 				return true;
 			}else{
 				return false;
 			}
 		}
+		/*
+		//應該是用不到了
 		function url_rename(){
 			var ori = $('#project__cover').val();
 			var url_name = ori.replace("C:\\fakepath\\", "");;
 			return url_name;
 		}
+		*/
 		project.title   = $('#project__title').val();
 		project.cata    = $('#project__cata').val();
 		project.content = $('#project__content').val();
 		project.status  = drop();
+		project.sequence = $('#project__sequence').val();
 		//project.image   = $('#input_image').val();
 
 
@@ -178,8 +196,24 @@
 	$('.js-update').click(function(event) {
 		var _url = $(this).attr('href');
 		var _obj = {};
-		_obj.newInput = $(this).siblings('.new_input').val();
-		
+
+		//防止空白欄位，覆蓋舊資料
+		if( $(this).siblings('.new_input').val() == '' ){
+			_obj.newInput = $(this).parent('section')
+							.siblings('.data-content').children('p').text();
+		}else {
+			_obj.newInput = $(this).siblings('.new_input').val();
+		}
+	
+		//防止空白欄位，覆蓋舊資料
+		if( $(this).siblings('.new_sequence').val() == '' ){
+			_obj.newSequence  = $(this).parent('section')
+							.siblings('.data-sort').children('p').text();
+		}else {
+			_obj.newSequence = $(this).siblings('.new_sequence').val();
+		}
+
+
 		console.log(_obj);
 		$.ajax({
 			url: _url,
@@ -200,6 +234,9 @@
 <script>
 	$('.js-control-gallery').click(function(event) {
 		$(this).siblings('.galler-stock').toggleClass('active');
+		$(this).text(function(i, wording){
+			return wording === "縮起內容" ? "展開內容" : "縮起內容";
+		})
 	});
 </script>
 </html>

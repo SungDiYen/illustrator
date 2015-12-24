@@ -24,11 +24,13 @@
                 </div>
             </header>
             <!-- /header -->
-			<article class="landing js-landing">
+            <div class="landing__backgound fixed">
                 <video class="landing__bg" autoplay loop muted 
                         poster="/images/flim_clip.png">
                     <source src="/images/IMG_0901.m4v">
                 </video>
+            </div>
+			<article class="landing js-landing">
                 <section class="landing__intro">
                     <article class="article left">
                         <div class="title name">
@@ -37,7 +39,7 @@
                             <span class="single">Yen</span>
                         </div>
                         <section class="subtitle jobs">
-                            <span class="single">Graphic,</span>
+                            <span class="single">Graphic&</span>
                             <span class="single">UI Designer,</span>
                             <span class="single">Front-End Developer</span>
                         </section>
